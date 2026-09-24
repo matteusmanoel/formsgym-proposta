@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minuta — Contrato de Prestação de Serviços — Forms Gym</title>
+  <style>
+    :root {
+      --ink: #1c1917;
+      --muted: #57534e;
+      --line: #d6d3d1;
+      --paper: #ffffff;
+      --wash: #f5f5f4;
+      --pending-bg: #fff7ed;
+      --pending-ink: #9a3412;
+      --pending-line: #fdba74;
+      --note-bg: #f8fafc;
+      --note-line: #cbd5e1;
+      --review-bg: #fefce8;
+      --review-line: #fde68a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { font-size: 11pt; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #e7e5e4;
+      font-family: Palatino, "Palatino Linotype", "Iowan Old Style", Georgia, "Times New Roman", serif;
+      line-height: 1.45;
+    }
+
+    .sheet {
+      width: 210mm;
+      max-width: 100%;
+      margin: 16px auto 32px;
+      background: var(--paper);
+      padding: 16mm 16mm 18mm;
+      box-shadow: 0 8px 28px rgba(28, 25, 23, 0.12);
+    }
+
+    p { margin: 0 0 0.65em; orphans: 3; widows: 3; }
+    strong { font-weight: 700; }
+
+    h1, h2, h3, h4 {
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-weight: 650;
+      line-height: 1.25;
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    h1 {
+      font-size: 1.35rem;
+      letter-spacing: 0.01em;
+      margin: 0.35rem 0 0.25rem;
+    }
+
+    h2 {
+      font-size: 0.98rem;
+      margin: 1.25rem 0 0.45rem;
+      padding-top: 0.15rem;
+      border-top: 1px solid var(--line);
+    }
+
+    h3 {
+      font-size: 0.92rem;
+      margin: 0.9rem 0 0.35rem;
+    }
+
+    .kicker {
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .subtitle {
+      margin: 0 0 0.4rem;
+      color: var(--muted);
+    }
+
+    .banner {
+      border: 1px solid var(--review-line);
+      background: var(--review-bg);
+      padding: 0.65rem 0.8rem;
+      margin: 0 0 1rem;
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .banner strong { display: block; margin-bottom: 0.15rem; }
+
+    .meta {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.6rem 0 0.2rem;
+      font-size: 0.92rem;
+    }
+
+    .meta th, .meta td {
+      text-align: left;
+      vertical-align: top;
+      padding: 0.28rem 0.45rem 0.28rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .meta th {
+      width: 34%;
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .party {
+      border: 1px solid var(--line);
+      padding: 0.7rem 0.85rem 0.35rem;
+      margin: 0.55rem 0;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .party h3 { margin-top: 0; }
+
+    .pending {
+      background: var(--pending-bg);
+      color: var(--pending-ink);
+      border-bottom: 1px dashed var(--pending-line);
+      padding: 0 0.15em;
+      font-weight: 700;
+    }
+
+    ol.clauses { margin: 0; padding: 0; list-style: none; counter-reset: clause; }
+    ol.clauses > li { margin: 0 0 0.55em; }
+    ol.clauses > li::before {
+      counter-increment: clause;
+      content: counter(clause) ". ";
+      font-weight: 700;
+    }
+
+    ol.alpha { margin: 0.2rem 0 0.6rem 1.2rem; padding: 0; }
+    ol.alpha > li { margin: 0 0 0.35em; }
+
+    ul.clean { margin: 0.2rem 0 0.65rem 1.15rem; padding: 0; }
+    ul.clean li { margin: 0 0 0.3em; }
+
+    table.data {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.4rem 0 0.8rem;
+      font-size: 0.88rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    table.data th, table.data td {
+      border: 1px solid var(--line);
+      padding: 0.38rem 0.45rem;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    table.data th {
+      background: var(--wash);
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 650;
+    }
+
+    table.data thead { display: table-header-group; }
+
+    table.data td.num, table.data th.num { text-align: right; white-space: nowrap; }
+    table.data tr { break-inside: avoid; page-break-inside: avoid; }
+    table.data tfoot td { font-weight: 700; background: var(--wash); }
+
+    .callout {
+      background: var(--note-bg);
+      border-left: 3px solid #94a3b8;
+      padding: 0.55rem 0.75rem;
+      margin: 0.4rem 0 0.8rem;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+      margin: 0.5rem 0 0.8rem;
+    }
+
+    .summary article {
+      border: 1px solid var(--line);
+      padding: 0.55rem 0.7rem 0.4rem;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .summary h3 {
+      margin: 0 0 0.25rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .summary .value {
+      font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 0 0 0.2rem;
+    }
+
+    .fine {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .sign-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem 1.6rem;
+      margin-top: 0.6rem;
+    }
+
+    .sign {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      min-height: 7.2rem;
+    }
+
+    .sign .line {
+      margin-top: 2.4rem;
+      border-top: 1px solid var(--ink);
+      padding-top: 0.3rem;
+    }
+
+    .sign p { margin-bottom: 0.15rem; }
+
+    .review-box {
+      border: 1px solid var(--review-line);
+      background: var(--review-bg);
+      padding: 0.7rem 0.85rem 0.4rem;
+      margin: 0.8rem 0;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .review-box h2 { border-top: 0; margin-top: 0; }
+
+    @page {
+      size: A4;
+      margin: 14mm 14mm 16mm;
+    }
+
+    .page-break { break-before: page; page-break-before: always; }
+
+    @media print {
+      body { background: white; }
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .sheet {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+      a { color: inherit; text-decoration: none; }
+      .summary { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media screen and (max-width: 720px) {
+      .sheet { padding: 1rem; }
+      .summary, .sign-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <p class="kicker">Minuta para revisão · não constitui parecer jurídico</p>
+    <div class="banner">
+      <strong>Documento de trabalho — não assinar nesta versão.</strong>
+      Minuta para revisão comercial e jurídica antes da conversão em PDF. Campos em destaque ainda precisam ser preenchidos. Não há assinatura lançada neste arquivo.
+    </div>
+
+    <h1>Contrato de prestação de serviços</h1>
+    <p class="subtitle">Implantação e operação de agente de atendimento por inteligência artificial em um canal de WhatsApp da Forms Gym.</p>
+
+    <table class="meta">
+      <tr>
+        <th>Instrumento</th>
+        <td><span class="pending">[NÚMERO DO INSTRUMENTO — PENDENTE]</span></td>
+      </tr>
+      <tr>
+        <th>Data da assinatura</th>
+        <td>A preencher no ato da assinatura. Esta minuta não fixa data fictícia.</td>
+      </tr>
+      <tr>
+        <th>Condição de calendário</th>
+        <td>A contratação deve ocorrer até 30 de setembro de 2026 para valer o calendário de vencimentos da Cláusula 7.</td>
+      </tr>
+    </table>
+
+    <h2>Partes</h2>
+
+    <section class="party">
+      <h3>Contratante</h3>
+      <p><strong>Forms Gym LTDA</strong>, pessoa jurídica inscrita no CNPJ sob o nº <strong>53.819.774/0001-05</strong>, com sede na <strong>Av. Rocha Pombo, 2005, Região do Lago, Cascavel/PR, CEP 85816-540</strong>, neste ato representada por seu sócio-administrador <strong>Carlos Eduardo Bedim Amorim</strong>, <span class="pending">[CPF DO REPRESENTANTE DA CONTRATANTE — PENDENTE]</span>, doravante denominada <strong>Contratante</strong> ou <strong>Forms Gym</strong>.</p>
+    </section>
+
+    <section class="party">
+      <h3>Contratada</h3>
+      <p><strong>Mateus Manoel Ferreira</strong>, inscrito no CNPJ sob o nº <strong>43.317.136/0001-32</strong>, estabelecido em <strong>Foz do Iguaçu/PR</strong>, no endereço <span class="pending">[ENDEREÇO COMPLETO DA CONTRATADA — PENDENTE]</span>, neste ato representado por <strong>Mateus Manoel Ferreira</strong>, <span class="pending">[CPF DO REPRESENTANTE DA CONTRATADA — PENDENTE]</span>, doravante denominado <strong>Contratada</strong>.</p>
+      <p class="fine">A qualificação acima usa somente os dados fornecidos para esta minuta. Natureza jurídica, nome empresarial distinto, se houver, e endereço completo devem ser confirmados antes da assinatura. Nada neste instrumento inventa esses dados.</p>
+    </section>
+
+    <p>As partes resolvem celebrar o presente contrato, que se rege pelas cláusulas seguintes e, no que couber, pela Lei nº 10.406, de 10 de janeiro de 2002 (Código Civil), em especial o capítulo da prestação de serviço, e pela Lei nº 13.709, de 14 de agosto de 2018 (Lei Geral de Proteção de Dados Pessoais).</p>
+
+    <h2>Quadro-resumo</h2>
+    <div class="summary">
+      <article>
+        <h3>Objeto</h3>
+        <p>Um agente de atendimento por IA para um canal de WhatsApp da Forms Gym, com implantação, operação assistida, monitoramento e refinamento.</p>
+      </article>
+      <article>
+        <h3>Preço fixo da implantação</h3>
+        <p class="value">R$ 6.900,00</p>
+        <p>Seis boletos de R$ 1.150,00. Condição de pagamento do preço fixo, distinta da mensalidade.</p>
+      </article>
+      <article>
+        <h3>Mensalidade</h3>
+        <p class="value">R$ 2.490,00</p>
+        <p>Devida enquanto o serviço contínuo estiver ativo, inclusive durante a implantação.</p>
+      </article>
+      <article>
+        <h3>Primeiro pagamento</h3>
+        <p class="value">R$ 3.640,00</p>
+        <p>Na assinatura: 1ª parcela da implantação (R$ 1.150,00) + 1ª mensalidade (R$ 2.490,00).</p>
+      </article>
+      <article>
+        <h3>Seis primeiros pagamentos</h3>
+        <p class="value">R$ 21.840,00</p>
+        <p>Soma, se as seis mensalidades forem devidas: R$ 6.900,00 de implantação + R$ 14.940,00 de mensalidades. Não é um preço único parcelado em seis vezes.</p>
+      </article>
+      <article>
+        <h3>Depois da implantação</h3>
+        <p class="value">R$ 2.490,00 / mês</p>
+        <p>Permanece apenas a mensalidade, no dia 17, enquanto o serviço estiver ativo.</p>
+      </article>
+      <article>
+        <h3>Prazo estimado de implantação</h3>
+        <p class="value">30 a 45 dias corridos</p>
+        <p>Contados do início efetivo, após assinatura e entrega dos acessos e informações essenciais.</p>
+      </article>
+      <article>
+        <h3>Encerramento</h3>
+        <p>Aviso escrito de 30 dias, por qualquer parte. Sem fidelidade obrigatória de seis meses e sem multa rescisória.</p>
+      </article>
+    </div>
+
+    <h2>Cláusula 1 — Objeto</h2>
+    <ol class="clauses">
+      <li>A Contratada prestará à Contratante serviços de implantação, configuração, operação assistida, monitoramento e refinamento de <strong>um</strong> agente de atendimento por inteligência artificial, destinado a <strong>um</strong> canal de WhatsApp da Forms Gym.</li>
+      <li>A prestação contínua começa com o projeto, a partir do início efetivo definido na Cláusula 6. Inclui planejamento, configuração, acompanhamento e disponibilização progressiva. Depois da entrada em funcionamento, passa à operação supervisionada e à otimização.</li>
+      <li>Na data da assinatura o agente <strong>não</strong> está em operação. A primeira mensalidade remunera o início dessa prestação contínua, e não um agente já atendendo o público.</li>
+      <li>O serviço é de meio. A Contratada empregará diligência técnica compatível com o escopo. Não promete disponibilidade integral do canal, volume de conversas, comparecimento, matrícula nem conversão comercial.</li>
+    </ol>
+
+    <h2>Cláusula 2 — Escopo do agente</h2>
+    <p>Dentro das informações, regras e fluxos aprovados pela Forms Gym, o agente deverá:</p>
+    <ol class="alpha">
+      <li>atender contatos recebidos no canal contratado, responder dúvidas com base em informações fornecidas e aprovadas pela Forms Gym e identificar a intenção do interessado;</li>
+      <li>conduzir a conversa segundo a abordagem comercial aprovada: compreender o objetivo da pessoa, explicar a proposta de acompanhamento da academia e convidá-la para uma aula experimental;</li>
+      <li>agendar, reagendar e cancelar aulas experimentais, observando regras de horários, disponibilidade, confirmação e transferência para a equipe humana;</li>
+      <li>encaminhar à equipe da Forms Gym o contexto necessário para continuar o atendimento e realizar o fechamento presencial;</li>
+      <li>encaminhar links de pagamento em situações de pagamento pendente ou atrasado e de renovação de plano, somente quando o link e a situação correspondente forem disponibilizados por fonte autorizada pela Forms Gym e houver condição técnica de identificar o destinatário com segurança;</li>
+      <li>transferir para atendimento humano dúvidas, exceções, contestações, negociação financeira e qualquer situação que a automação não possa resolver com segurança.</li>
+    </ol>
+    <p>O detalhamento de entregáveis e responsabilidades consta do Anexo I, que integra este contrato.</p>
+
+    <h2>Cláusula 3 — Limites do agente</h2>
+    <ol class="clauses">
+      <li>O agente encaminha informações e links provenientes dos sistemas ou fluxos autorizados pela Forms Gym. Não cria cobrança de forma autônoma, não altera valores, não concede descontos, não negocia dívidas, não consulta por conta própria base de inadimplentes e não confirma pagamento sem integração validada e autorização expressa.</li>
+      <li>A Forms Gym responde pela exatidão dos valores, pela situação financeira dos alunos, pela validade dos links e pelas regras comerciais que fornecer.</li>
+      <li>Campanhas, disparos em massa e qualquer uso do canal para finalidade diferente do atendimento contratado estão fora do escopo, ainda que a franquia mensal de tokens não tenha sido consumida. Esses usos dependem de acordo escrito específico.</li>
+      <li>Não estão incluídos, salvo ajuste escrito de escopo e prazo: tráfego pago, taxas de transações financeiras, valores cobrados dos alunos, campanhas de marketing, troca de CRM e serviços extraordinários.</li>
+    </ol>
+
+    <h2>Cláusula 4 — Integrações</h2>
+    <ol class="clauses">
+      <li>O SCA é o sistema atualmente usado pela Forms Gym para agendar aulas experimentais. O Agulha foi informado como CRM. A integração com esses sistemas e com eventual plataforma financeira <strong>depende</strong> de verificação de API, permissões, acesso, viabilidade técnica e homologação.</li>
+      <li>Nenhuma dessas integrações é declarada, neste instrumento, como contratada e garantida antes dessa validação.</li>
+      <li>A Contratada investigará e implementará os meios tecnicamente viáveis dentro do escopo. Se uma integração específica não estiver disponível, as partes adotarão fluxo assistido com a equipe da Forms Gym, com confirmação humana quando necessária. O agente não depende de integração automática para cumprir o atendimento descrito na Cláusula 2 por esse fluxo assistido.</li>
+      <li>Integração complexa, desenvolvimento sob medida de conector não viável com os meios ordinários, ou troca de CRM, não está incluída. Exige acordo escrito sobre escopo, prazo e, se houver, preço.</li>
+    </ol>
+
+    <h2>Cláusula 5 — Obrigações das partes</h2>
+    <h3>5.1. Contratada</h3>
+    <ol class="clauses">
+      <li>Executar o escopo com a diligência prevista na Cláusula 1, manter a Contratante informada dos marcos do Anexo I e registrar, de forma verificável, o que for aprovado, recusado ou adiado.</li>
+      <li>Escolher e ajustar os modelos de linguagem adequados à operação, sem reduzir unilateralmente a qualidade do serviço contratado. A escolha do modelo não altera preço, franquia nem escopo.</li>
+      <li>Operar os custos ordinários de tecnologia necessários à operação contratada, dentro dos limites da Cláusula 8, sob sua responsabilidade.</li>
+      <li>Não usar credenciais da Forms Gym fora da execução deste contrato, e restringir o acesso ao que for necessário para o serviço.</li>
+    </ol>
+    <h3>5.2. Contratante</h3>
+    <ol class="clauses">
+      <li>Fornecer acessos legítimos, agenda, regras, conteúdo, links e dados corretos; aprovar fluxos em prazo compatível com o cronograma; designar interlocutor com poder de decisão operacional; e manter pessoas disponíveis para receber os repasses do agente.</li>
+      <li>O interlocutor inicial indicado é Carlos Eduardo Bedim Amorim, substituível por comunicação escrita, no contato <span class="pending">[E-MAIL E TELEFONE DO INTERLOCUTOR — PENDENTE]</span>.</li>
+      <li>A Forms Gym define as finalidades do tratamento de dados de interessados e alunos e fornece as instruções correspondentes, nos termos da Cláusula 13.</li>
+    </ol>
+
+    <h2>Cláusula 6 — Prazo de implantação e dependências</h2>
+    <ol class="clauses">
+      <li>A estimativa comercial para a implantação completa é de <strong>30 a 45 dias corridos</strong>, contados do <strong>início efetivo</strong>.</li>
+      <li>O início efetivo ocorre quando estiverem cumulativamente presentes a assinatura deste contrato e a disponibilização, pela Contratante, dos acessos e informações essenciais listados no Anexo I. A minuta não fixa data de calendário para esse início.</li>
+      <li>As etapas de acompanhamento, sem datas inventadas, são: levantamento de informações e regras; fluxos e base inicial submetidos à aprovação; configuração e testes em cenários controlados; operação supervisionada e treinamento breve da equipe; entrada em funcionamento e rotina de ajustes. Os marcos verificáveis estão no Anexo I.</li>
+      <li>Atraso na entrega de acessos ou informações, indisponibilidade de sistemas de terceiros, espera de permissão, API ou homologação, e alteração de escopo podem afetar o prazo. A parte que identificar o fato comunicará a outra por escrito, em até 5 (cinco) dias úteis de tomar conhecimento, indicando o impacto estimado no cronograma.</li>
+      <li>Essa comunicação não prorroga o prazo de forma automática e ilimitada. O período em que o fato impedir o avanço, desde que documentado, não é contado nos 30 a 45 dias. As partes ajustarão por escrito a nova janela. Se os itens essenciais não forem entregues em 15 (quinze) dias corridos após a assinatura, a Contratada poderá suspender a contagem e pedir replanejamento, sem prejuízo das mensalidades já vencidas pela prestação em curso, enquanto houver trabalho possível de planejamento e preparação.</li>
+      <li>O prazo de 15 dias do item anterior é proposta desta minuta para validação comercial, porque a data de assinatura ainda não foi informada.</li>
+    </ol>
+
+    <h2>Cláusula 7 — Preço e pagamento</h2>
+    <ol class="clauses">
+      <li>O <strong>preço fixo da implantação</strong> é de <strong>R$ 6.900,00</strong> (seis mil e novecentos reais), pago em <strong>6 (seis) boletos de R$ 1.150,00</strong> (mil cento e cinquenta reais). Esse parcelamento é condição de pagamento do preço fixo. Não é mensalidade e não é fidelidade.</li>
+      <li>A <strong>mensalidade</strong> da prestação contínua é de <strong>R$ 2.490,00</strong> (dois mil quatrocentos e noventa reais). A primeira é devida na assinatura, ainda que a implantação esteja em curso, pelo motivo da Cláusula 1.</li>
+      <li>O pagamento inicial é de <strong>R$ 3.640,00</strong> (três mil seiscentos e quarenta reais), soma da primeira parcela da implantação e da primeira mensalidade, devido <strong>imediatamente após a assinatura</strong>.</li>
+      <li>Desde que a assinatura ocorra até 30 de setembro de 2026, a segunda parcela da implantação e a segunda mensalidade vencem em <strong>17/10/2026</strong>, também no total de R$ 3.640,00. Os vencimentos seguintes, enquanto houver parcela de implantação e mensalidade no mesmo dia, caem no <strong>dia 17</strong> de cada mês, conforme o quadro abaixo.</li>
+      <li>Se a assinatura não ocorrer até 30 de setembro de 2026, o calendário desta cláusula não se desloca sozinho. As partes fixarão novas datas por escrito antes de assinar, ou em aditivo se a assinatura já tiver ocorrido sem esse ajuste.</li>
+      <li>Quitadas as seis parcelas da implantação, permanece somente a mensalidade de R$ 2.490,00, vencível no dia 17 de cada mês, enquanto o serviço estiver ativo.</li>
+      <li>Se todas as seis mensalidades forem devidas, a soma dos seis primeiros pagamentos será de <strong>R$ 21.840,00</strong> (vinte e um mil oitocentos e quarenta reais), composta por <strong>R$ 6.900,00</strong> de implantação e <strong>R$ 14.940,00</strong> de seis mensalidades. Esse total descreve a soma de duas obrigações distintas. Não é o preço da implantação, nem um valor de R$ 21.840,00 parcelado em seis vezes.</li>
+      <li>Conferência aritmética que as partes reconhecem nesta minuta: 6 × R$ 1.150,00 = R$ 6.900,00; 6 × R$ 2.490,00 = R$ 14.940,00; R$ 6.900,00 + R$ 14.940,00 = R$ 21.840,00; R$ 1.150,00 + R$ 2.490,00 = R$ 3.640,00; 6 × R$ 3.640,00 = R$ 21.840,00.</li>
+      <li>Cada vencimento poderá ser cobrado em um ou dois boletos, desde que o documento ou a descrição identifique o que é parcela de implantação e o que é mensalidade. Dados bancários e beneficiário do boleto: <span class="pending">[DADOS PARA EMISSÃO DO BOLETO — PENDENTE]</span>.</li>
+      <li>Não há pró-rata na primeira mensalidade. O primeiro ciclo de cobrança e de franquia vai da data da assinatura até 16/10/2026, ainda que tenha menos de um mês, porque o segundo vencimento foi fixado em 17/10/2026. Os ciclos seguintes vão do dia 17 de um mês até o dia 16 do mês seguinte. A mensalidade do dia 17 remunera o ciclo que se inicia nessa data.</li>
+    </ol>
+
+    <h3>Quadro dos seis primeiros vencimentos</h3>
+    <p class="fine">Cada linha soma uma parcela de implantação e uma mensalidade. A partir de 17/03/2027, se o serviço continuar, cobra-se apenas a mensalidade de R$ 2.490,00.</p>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Vencimento</th>
+          <th>Parcela da implantação</th>
+          <th class="num">Implantação</th>
+          <th>Ciclo</th>
+          <th class="num">Mensalidade</th>
+          <th class="num">Total do vencimento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Na assinatura</td>
+          <td>1 de 6</td>
+          <td class="num">R$ 1.150,00</td>
+          <td>1º ciclo</td>
+          <td class="num">R$ 2.490,00</td>
+          <td class="num">R$ 3.640,00</td>
+        </tr>
+        <tr>
+          <td>17/10/2026</td>
+          <td>2 de 6</td>
+          <td class="num">R$ 1.150,00</td>
+          <td>2º ciclo</td>
+          <td class="num">R$ 2.490,00</td>
+          <td class="num">R$ 3.640,00</td>
+        </tr>
+        <tr>
+          <td>17/11/2026</td>
+          <td>3 de 6</td>
+          <td class="num">R$ 1.150,00</td>
+          <td>3º ciclo</td>
+          <td class="num">R$ 2.490,00</td>
+          <td class="num">R$ 3.640,00</td>
+        </tr>
+        <tr>
+          <td>17/12/2026</td>
+          <td>4 de 6</td>
+          <td class="num">R$ 1.150,00</td>
+          <td>4º ciclo</td>
+          <td class="num">R$ 2.490,00</td>
+          <td class="num">R$ 3.640,00</td>
+        </tr>
+        <tr>
+          <td>17/01/2027</td>
+          <td>5 de 6</td>
+          <td class="num">R$ 1.150,00</td>
+          <td>5º ciclo</td>
+          <td class="num">R$ 2.490,00</td>
+          <td class="num">R$ 3.640,00</td>
+        </tr>
+        <tr>
+          <td>17/02/2027</td>
+          <td>6 de 6</td>
+          <td class="num">R$ 1.150,00</td>
+          <td>6º ciclo</td>
+          <td class="num">R$ 2.490,00</td>
+          <td class="num">R$ 3.640,00</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">Soma</td>
+          <td class="num">R$ 6.900,00</td>
+          <td></td>
+          <td class="num">R$ 14.940,00</td>
+          <td class="num">R$ 21.840,00</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <h3>Parcelas da implantação, isoladas</h3>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Parcela</th>
+          <th>Vencimento</th>
+          <th class="num">Valor</th>
+          <th>Natureza</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Na assinatura</td>
+          <td class="num">R$ 1.150,00</td>
+          <td>Preço fixo da implantação</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>17/10/2026</td>
+          <td class="num">R$ 1.150,00</td>
+          <td>Preço fixo da implantação</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>17/11/2026</td>
+          <td class="num">R$ 1.150,00</td>
+          <td>Preço fixo da implantação</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>17/12/2026</td>
+          <td class="num">R$ 1.150,00</td>
+          <td>Preço fixo da implantação</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>17/01/2027</td>
+          <td class="num">R$ 1.150,00</td>
+          <td>Preço fixo da implantação</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>17/02/2027</td>
+          <td class="num">R$ 1.150,00</td>
+          <td>Preço fixo da implantação</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">Total da implantação</td>
+          <td class="num">R$ 6.900,00</td>
+          <td>Não inclui mensalidades</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <h2>Cláusula 8 — Franquia de uso e custos de terceiros</h2>
+    <ol class="clauses">
+      <li>A mensalidade inclui os custos ordinários de tecnologia necessários à operação contratada, sob responsabilidade da Contratada, nos limites deste contrato. Não inclui os itens excluídos na Cláusula 3.</li>
+      <li>A franquia mensal é de <strong>50.000.000 (cinquenta milhões) de tokens de texto, somando tokens de entrada e de saída</strong>. Não são 50 milhões de entrada mais 50 milhões de saída. A medição usa os registros de uso do provedor dos modelos utilizados na operação contratada.</li>
+      <li>A apuração acompanha os ciclos da Cláusula 7: o primeiro ciclo vai da assinatura até 16/10/2026; os seguintes, do dia 17 ao dia 16 do mês seguinte.</li>
+      <li>Quando a Contratante solicitar, a Contratada apresentará relatório ou informação verificável do consumo do ciclo em curso ou do ciclo encerrado imediatamente anterior, em até 5 (cinco) dias úteis.</li>
+      <li>A Contratada alertará a Contratante ao atingir cerca de 70% e cerca de 90% da franquia do ciclo.</li>
+      <li>Uso acima da franquia, ou ampliação da franquia, só pode ser cobrado depois de proposta escrita da Contratada e aprovação expressa da Forms Gym. Não há cobrança extra automática.</li>
+      <li>Ao atingir 100% da franquia sem aprovação de uso adicional, os novos contatos permanecem identificáveis e são encaminhados à equipe humana ou tratados pelo fluxo assistido definido de antemão. Mensagens de clientes não podem desaparecer nem ficar sem encaminhamento por esgotamento da franquia.</li>
+      <li>Esta minuta não estima custo em moeda estrangeira, não fixa câmbio, não nomeia modelo e não afirma que 50 milhões de tokens correspondem a um valor monetário determinado. Esses fatores variam e ficam na precificação interna da Contratada.</li>
+    </ol>
+
+    <h2>Cláusula 9 — Vigência, aviso e preço da implantação</h2>
+    <ol class="clauses">
+      <li>O serviço contínuo vigora por prazo indeterminado, a partir do início efetivo, sem fidelidade obrigatória de seis meses e sem multa rescisória. O prazo máximo legal da prestação de serviço, quando aplicável, será observado na revisão jurídica, em especial o art. 598 do Código Civil.</li>
+      <li>Qualquer parte pode encerrar o contrato mediante aviso escrito com 30 (trinta) dias de antecedência. O art. 599 do Código Civil prevê aviso prévio quando não há prazo estipulado; o prazo de 30 dias é o ajustado nesta minuta, e não os prazos mínimos daquele artigo.</li>
+      <li>A <strong>mensalidade</strong> é devida durante o período efetivo de prestação e durante o aviso prévio. Depois da data de encerramento não se inicia novo ciclo. A mensalidade de ciclo já iniciado permanece devida. Se o encerramento cair no meio de um ciclo já pago, não haverá restituição desse ciclo. Se um dia 17 ocorrer dentro do aviso prévio, a mensalidade desse novo ciclo é devida; se o serviço for prestado em apenas parte dele, cobra-se o pró-rata dos dias de serviço até a data de encerramento, à base de R$ 2.490,00 pelo ciclo cheio.</li>
+      <li>O <strong>preço fixo da implantação</strong> não se confunde com a mensalidade. Em rescisão imotivada pela Contratante <strong>depois do início efetivo</strong>, o saldo das parcelas de implantação continua devido nas datas da Cláusula 7. Parcelas já pagas não são devolvidas nessa hipótese.</li>
+      <li>Antes do início efetivo, rescisão imotivada da Contratante não torna exigível o saldo das parcelas de implantação ainda não vencidas. O pagamento inicial da Cláusula 7, se já exigível pela assinatura, permanece devido. A condição comercial do item anterior — saldo integral das parcelas de implantação — aplica-se somente depois do início efetivo.</li>
+      <li>Não é devido o saldo integral da implantação quando a execução não ocorrer por inadimplemento ou falha relevante da Contratada, observado o procedimento abaixo.</li>
+      <li>Falha relevante da Contratada é o descumprimento substancial de marco do Anexo I por causa a ela imputável, ou a interrupção injustificada da operação depois da entrada em funcionamento, excluídas dependências da Cláusula 6, caso fortuito, força maior e indisponibilidade de plataforma de terceiro fora do controle da Contratada.</li>
+      <li>A Contratante notificará a falha por escrito. A Contratada terá 15 (quinze) dias úteis para corrigir, prazo sugerido nesta minuta para validação. Não corrigida a falha, a Contratante poderá encerrar o serviço contínuo. O acerto da implantação considerará as etapas do Anexo I efetivamente entregues e aceitas, e o trabalho em andamento demonstrado. A Contratante pagará o que corresponder a essas etapas. O que tiver pago a maior será devolvido ou compensado em até 15 (quinze) dias úteis do acerto. Parcelas de etapas não executadas por culpa da Contratada não serão exigidas.</li>
+      <li>Durante o aviso prévio o serviço continua, salvo suspensão legítima por inadimplemento da Contratante ou impossibilidade técnica já comunicada.</li>
+    </ol>
+
+    <div class="review-box">
+      <h2>Nota de revisão — não integra o texto a ser assinado</h2>
+      <p>O item 4 da Cláusula 9 reproduz a condição comercial negociada: após o início efetivo, rescisão imotivada da Contratante mantém exigível o saldo do preço fixo de R$ 6.900,00. Há tensão se a rescisão ocorrer muito cedo, com pouca entrega. O art. 413 do Código Civil permite ao juiz reduzir penalidade manifestamente excessiva ou quando a obrigação foi cumprida em parte. O art. 623, se a implantação for aproximada de empreitada, fala em despesas e lucros do serviço já feito, mais indenização razoável, e não em cobrança automática indiferente ao que foi entregue. Alternativa para o advogado, sem que esta minuta a substitua ao negociado: até a aceitação dos fluxos (marco 2 do Anexo I), limitar a implantação ao trabalho comprovado, com retenção mínima da primeira parcela de R$ 1.150,00 a título de mobilização; depois dessa aceitação, manter o saldo integral. Remover este quadro antes do PDF de assinatura.</p>
+    </div>
+
+    <h2>Cláusula 10 — Atraso, notificação e suspensão</h2>
+    <ol class="clauses">
+      <li>O não pagamento na data de vencimento constitui mora, nos termos do art. 397 do Código Civil, por se tratar de obrigação positiva e líquida com termo.</li>
+      <li>Sobre valores em atraso, esta minuta <strong>sugere, para validação, e não registra como taxa já negociada</strong>: multa moratória de 2% (dois por cento) e juros de 1% (um por cento) ao mês, além de atualização pelo IPCA, índice indicado no art. 389, parágrafo único, do Código Civil quando não houver outro índice convencionado. Se as partes não fecharem alíquota, aplica-se a taxa legal do art. 406 do Código Civil, na redação da Lei nº 14.905, de 2024. Marca de validação: <span class="pending">[MULTA E JUROS DE MORA — PENDENTES DE ACEITE; SUGESTÃO 2% E 1% A.M.]</span>.</li>
+      <li>A Contratada notificará o atraso por escrito e concederá 10 (dez) dias corridos para regularização, prazo sugerido para validação. Durante esse prazo o serviço não será cortado.</li>
+      <li>Persistindo o atraso, a Contratada poderá suspender a operação do agente, sem apagar conversas, configurações aprovadas nem dados da Contratante. O acesso será restabelecido após a quitação do principal, dos encargos aceitos e da confirmação de que o canal segue disponível.</li>
+      <li>Suspensão não apaga o saldo da implantação já constituído nem as mensalidades vencidas até a suspensão. Período suspenso por inadimplemento da Contratante não gera mensalidade nova, e também não conta como cumprimento de marcos pela Contratada.</li>
+    </ol>
+
+    <h2>Cláusula 11 — Confidencialidade</h2>
+    <ol class="clauses">
+      <li>Cada parte manterá em sigilo as informações não públicas da outra a que tiver acesso em razão deste contrato, inclusive regras comerciais, conteúdos de atendimento, credenciais, conversas e dados de alunos e interessados.</li>
+      <li>A obrigação não alcança informação que seja ou se torne pública sem culpa da parte receptora, que já fosse lícita e comprovadamente de seu conhecimento, ou cuja divulgação seja exigida por lei ou autoridade, hipótese em que a parte avisará a outra previamente, se a ordem não o impedir.</li>
+      <li>O sigilo permanece por 3 (três) anos após o encerramento, e por prazo superior quando a lei de proteção de dados ou o segredo comercial assim exigir. O prazo de três anos é proposta para validação.</li>
+    </ol>
+
+    <h2>Cláusula 12 — Credenciais e segurança operacional</h2>
+    <ol class="clauses">
+      <li>Credenciais, tokens de API e acessos a SCA, Agulha, WhatsApp e demais sistemas serão usados apenas para executar este contrato, pelo menor número de pessoas necessário, e guardados com medidas compatíveis com o art. 46 da Lei nº 13.709/2018.</li>
+      <li>A Contratante pode revogar acessos ao encerrar o contrato ou quando houver suspeita de uso indevido, sem prejuízo da transição ordenada da Cláusula 13.</li>
+      <li>A Contratada comunicará, assim que tiver conhecimento, uso não autorizado de credencial que lhe tenha sido confiada.</li>
+    </ol>
+
+    <h2>Cláusula 13 — Proteção de dados pessoais</h2>
+    <ol class="clauses">
+      <li>Para o tratamento de dados pessoais de interessados e alunos da Forms Gym, a Contratante é controladora e a Contratada é operadora, nos sentidos do art. 5º, incisos VI e VII, da Lei nº 13.709/2018. A Contratada trata esses dados segundo as instruções da Contratante, na forma do art. 39 da mesma lei.</li>
+      <li>A base legal perante o titular é definida pela Contratante. Esta minuta não escolhe, no lugar da Forms Gym, consentimento, execução de contrato ou legítimo interesse.</li>
+      <li>Conversas podem revelar dado referente à saúde, como limitação física ou objetivo ligado a condição de saúde. Dado desse tipo é sensível, nos termos do art. 5º, inciso II, e do art. 11 da Lei nº 13.709/2018. O agente não solicita dado sensível além do que a Forms Gym autorizar no fluxo aprovado, e encaminha a um humano o que exceder a resposta segura.</li>
+      <li>A Contratada adota medidas de segurança técnicas e administrativas aptas a proteger os dados contra acesso não autorizado e situações acidentais ou ilícitas de destruição, perda, alteração, comunicação ou tratamento inadequado, nos termos dos arts. 46 e 47 da Lei nº 13.709/2018, na medida do serviço contratado.</li>
+      <li>A comunicação de incidente de segurança à ANPD e ao titular, quando possa acarretar risco ou dano relevante, é dever do controlador, no prazo de 3 (três) dias úteis do conhecimento de que o incidente afetou dados pessoais, conforme o art. 48 da Lei nº 13.709/2018 e o art. 6º da Resolução CD/ANPD nº 15, de 24 de abril de 2024. A Contratada informará a Contratante em até 2 (dois) dias úteis de confirmar o incidente no ambiente que opera, com descrição do que souber sobre natureza dos dados, titulares atingidos, riscos e medidas adotadas, para que a Contratante possa cumprir esse prazo. O prazo de dois dias úteis é proposta contratual para validação, e não prazo legal atribuído ao operador.</li>
+      <li>A Contratada cooperará, em prazo razoável, com o atendimento a solicitações de titulares recebidas pela Contratante, inclusive acesso, correção e eliminação, nos limites do art. 18 da Lei nº 13.709/2018 e das instruções da controladora.</li>
+      <li>É admitida subcontratação tecnológica necessária à operação, como hospedagem, canal de WhatsApp e provedor de modelos, desde que o subcontratado trate dados apenas para executar este contrato e com deveres de segurança compatíveis. A lista nominal de suboperadores será entregue antes do início efetivo, em <span class="pending">[ANEXO DE SUBOPERADORES — PENDENTE]</span>, e atualizada quando houver troca relevante. A Contratante pode se opor, de forma fundamentada, a suboperador que trate dados de alunos fora dessa necessidade.</li>
+      <li>Provedores situados fora do Brasil podem implicar transferência internacional de dados, permitida apenas nas hipóteses do art. 33 da Lei nº 13.709/2018. A Contratada não iniciará a operação com transferência internacional sem indicar à Contratante o mecanismo que pretende usar. A escolha do mecanismo fica para validação jurídica e não é afirmada como já constituída nesta minuta.</li>
+      <li>Ao término, a Contratada devolverá ou eliminará os dados pessoais tratados por conta deste contrato em até 30 (trinta) dias corridos do pedido escrito da Contratante, ou do encerramento se não houver pedido de guarda transitória. Conserva-se o que a lei autorizar, nos termos do art. 16 da Lei nº 13.709/2018, inclusive obrigação legal e exercício regular de direitos. Cópias de segurança são eliminadas no ciclo técnico ordinário, com prazo máximo sugerido de 90 (noventa) dias, sujeito a validação. O prazo de 30 dias é proposta desta minuta.</li>
+      <li>A responsabilidade por dano decorrente do tratamento observa os arts. 42 e seguintes da Lei nº 13.709/2018. O operador responde solidariamente quando descumprir a lei de proteção de dados ou deixar de seguir instrução lícita do controlador. Nada nesta cláusula afasta essa regra.</li>
+    </ol>
+
+    <h2>Cláusula 14 — Mensagens sobre pendência financeira</h2>
+    <ol class="clauses">
+      <li>Mensagem sobre pagamento pendente, atraso ou renovação só é enviada ao destinatário que a fonte autorizada e a identificação técnica apontarem como o próprio aluno ou interessado correspondente. A situação financeira não é exposta a terceiro.</li>
+      <li>O conteúdo segue o texto aprovado pela Forms Gym. O agente não inventa valor, não afirma que houve pagamento sem confirmação confiável da fonte autorizada e não discute contestação. Contestação, negativa e pedido de negociação são transferidos a uma pessoa da equipe.</li>
+      <li>Se a identificação do destinatário ou a validade do link não estiver segura, o agente não envia o link e registra o caso para a equipe humana.</li>
+    </ol>
+
+    <h2>Cláusula 15 — Propriedade intelectual</h2>
+    <ol class="clauses">
+      <li>Permanecem da Forms Gym a marca, os conteúdos, as regras comerciais, os roteiros por ela aprovados como expressão de seu negócio e os dados de seus alunos e interessados.</li>
+      <li>Permanecem da Contratada os métodos genéricos, componentes preexistentes e a arquitetura técnica do agente. Durante a vigência, a Forms Gym recebe licença não exclusiva, intransferível e limitada ao canal contratado, para usar a configuração em produção.</li>
+      <li>Encerrado o contrato, a licença cessa. A Contratada entrega exportação das conversas e dos conteúdos fornecidos pela Forms Gym, em formato utilizável que já empregue na operação, e desativa o agente no canal. Não entrega, como código-fonte aberto, ferramentas genéricas que não tenham sido desenvolvidas exclusivamente como obra encomendada. Se as partes quiserem cessão de propriedade da configuração, farão isso em instrumento próprio. Este ponto está proposto para validação.</li>
+    </ol>
+
+    <h2>Cláusula 16 — Responsabilidade</h2>
+    <ol class="clauses">
+      <li>Cada parte responde por culpa, nos termos do art. 392 do Código Civil, pelos danos diretos que causar à outra. Não responde por lucro cessante, perda de matrícula ou resultado comercial não prometido nesta minuta, salvo dolo.</li>
+      <li>A Contratada não responde por indisponibilidade ou mudança de regra de WhatsApp, SCA, Agulha, provedor de modelos ou meio de pagamento, quando não der causa ao fato, sem prejuízo de avisar a Contratante e acionar o fluxo assistido.</li>
+      <li>Como teto sugerido para validação, e não como condição já negociada, a responsabilidade da Contratada por danos diretos fica limitada ao total pago pela Contratante nos 3 (três) meses anteriores ao evento. O teto não se aplica a dolo, culpa grave nem a hipótese em que a Lei nº 13.709/2018 não permitir limitação. Marca: <span class="pending">[TETO DE RESPONSABILIDADE — PENDENTE DE ACEITE]</span>.</li>
+      <li>Nada nesta cláusula obriga a Contratante a pagar implantação não executada por culpa da Contratada, matéria tratada na Cláusula 9.</li>
+    </ol>
+
+    <h2>Cláusula 17 — Comunicações</h2>
+    <ol class="clauses">
+      <li>Avisos de cobrança, franquia, incidente, alteração de prazo, suspensão e encerramento serão feitos por escrito, com comprovação de envio, para os e-mails abaixo. Mensagem instantânea pode antecipar o aviso, mas não substitui o escrito quando a cláusula exigir notificação.</li>
+      <li>Contratante: <span class="pending">[E-MAIL PARA NOTIFICAÇÕES — PENDENTE]</span>.</li>
+      <li>Contratada: <span class="pending">[E-MAIL DA CONTRATADA PARA NOTIFICAÇÕES — PENDENTE]</span>.</li>
+      <li>A mudança de e-mail só produz efeito depois de comunicada à outra parte.</li>
+    </ol>
+
+    <h2>Cláusula 18 — Disposições gerais</h2>
+    <ol class="clauses">
+      <li>Este contrato não cria sociedade, representação comercial, vínculo empregatício nem mandato para a Contratada negociar ou receber valores em nome da Forms Gym, salvo o encaminhamento de links previsto na Cláusula 2.</li>
+      <li>A tolerância quanto a um descumprimento não altera o contrato.</li>
+      <li>Alterações de escopo, preço, franquia ou prazo exigem escrito. Troca de mensagens pode valer como escrito quando identificar autor, conteúdo e aceite.</li>
+      <li>Se alguma cláusula for considerada inválida, as demais permanecem. A invalidade parcial não reduz o preço fixo nem a mensalidade, salvo na medida do acerto da Cláusula 9 quando a execução falhar por culpa da Contratada.</li>
+      <li>A Contratada não cede a posição contratual sem anuência da Contratante, observado o art. 605 do Código Civil quanto à substituição de quem presta o serviço. Subcontratação tecnológica da Cláusula 13 não é cessão do contrato.</li>
+      <li>Contam-se prazos em dias corridos, salvo quando a cláusula disser dias úteis. Dia útil é o dia em que há expediente bancário em Cascavel/PR.</li>
+    </ol>
+
+    <h2>Cláusula 19 — Foro</h2>
+    <p>Para resolver controvérsias deste contrato, as partes elegem o foro da comarca de Cascavel, Estado do Paraná, proposta desta minuta porque ali está o estabelecimento da Contratante, com renúncia a qualquer outro, por mais privilegiado que seja. A eleição deve ser confirmada na revisão: <span class="pending">[FORO — PROPOSTO CASCAVEL/PR, PENDENTE DE ACEITE]</span>. Fundamento de referência: art. 63 da Lei nº 13.105, de 16 de março de 2015 (Código de Processo Civil), a ser conferido pelo advogado quanto à eficácia da eleição neste negócio.</p>
+
+    <h2 class="page-break">Anexo I — Escopo, entregáveis e responsabilidades</h2>
+    <h3>Canal e resultado operacional</h3>
+    <ul class="clean">
+      <li>Um número ou canal de WhatsApp indicado pela Forms Gym: <span class="pending">[IDENTIFICAÇÃO DO CANAL DE WHATSAPP — PENDENTE]</span>.</li>
+      <li>Atendimento de contatos recebidos, não de campanha ativa, salvo acordo específico.</li>
+      <li>Horário em que a equipe humana recebe repasses: <span class="pending">[HORÁRIO DE RECEPÇÃO DOS REPASSES — PENDENTE]</span>. Fora desse horário o agente pode registrar o contexto e manter a conversa dentro do fluxo aprovado, sem prometer resposta humana imediata.</li>
+    </ul>
+
+    <h3>Entregáveis verificáveis</h3>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Marco</th>
+          <th>Entregável</th>
+          <th>Aceite</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1. Levantamento</td>
+          <td>Registro das informações, regras de horário, disponibilidade, tom de voz e critérios de transferência recebidos da Forms Gym.</td>
+          <td>Interlocutor confirma que o registro reflete o que foi informado.</td>
+        </tr>
+        <tr>
+          <td>2. Fluxos aprovados</td>
+          <td>Roteiros de abordagem comercial, convite à aula experimental, agendamento, reagendamento, cancelamento e transferência humana.</td>
+          <td>Aprovação escrita da Forms Gym antes do uso com contatos reais.</td>
+        </tr>
+        <tr>
+          <td>3. Base inicial</td>
+          <td>Conjunto inicial de respostas às dúvidas recorrentes, limitado ao conteúdo aprovado.</td>
+          <td>Aprovação escrita do conteúdo.</td>
+        </tr>
+        <tr>
+          <td>4. Cenários e testes</td>
+          <td>Testes dos cenários acordados, inclusive exceção, contestação e link de pagamento quando houver fonte de teste.</td>
+          <td>Registro dos testes e dos ajustes pedidos.</td>
+        </tr>
+        <tr>
+          <td>5. Entrada assistida</td>
+          <td>Operação supervisionada no canal real e treinamento breve da equipe para assumir atendimentos e ler o contexto repassado.</td>
+          <td>Sessão realizada com as pessoas designadas.</td>
+        </tr>
+        <tr>
+          <td>6. Rotina de ajustes</td>
+          <td>Ajustes de fluxo e de respostas a partir de conversas reais, dentro do escopo, sem nova integração complexa.</td>
+          <td>Contínuo, enquanto a mensalidade estiver ativa.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Itens essenciais para o início efetivo</h3>
+    <ul class="clean">
+      <li>Indicação do canal de WhatsApp e dos acessos legítimos necessários à configuração.</li>
+      <li>Regras de aula experimental: horários, capacidade, confirmação, cancelamento e o que a recepção precisa receber.</li>
+      <li>Conteúdo aprovável sobre a proposta de acompanhamento da academia, suficiente para a base inicial.</li>
+      <li>Nome do interlocutor e das pessoas que receberão repasses.</li>
+      <li>Se a Forms Gym quiser links de pagamento desde a entrada em funcionamento: fonte autorizada, exemplo de link e regra de quando enviar. Sem isso, o fluxo de pagamento permanece desligado até a validação, e o restante do atendimento pode seguir.</li>
+    </ul>
+
+    <h3>Responsabilidade da Forms Gym no dia a dia</h3>
+    <ul class="clean">
+      <li>Manter agenda, preços, planos e regras atualizados junto à Contratada.</li>
+      <li>Receber repasses e dar seguimento presencial, inclusive fechamento e contestação financeira.</li>
+      <li>Não usar o canal contratado para disparo em massa sem acordo específico.</li>
+    </ul>
+
+    <h3>Acompanhamento, sem meta numérica</h3>
+    <p>Enquanto a operação estiver ativa, a Contratada torna visíveis, quando houver dado no canal, indicadores como conversas recebidas, convites a aula experimental, aulas tratadas pelo agente ou pela equipe, e transferências humanas. Não há baseline prometido nem meta de conversão. A medição serve para ajustar o fluxo. Comparecimento e matrícula dependem da operação presencial da Forms Gym.</p>
+
+    <h2>Anexo II — Leitura financeira</h2>
+    <div class="callout">
+      <p>Implantação: R$ 6.900,00 em seis parcelas de R$ 1.150,00.</p>
+      <p>Mensalidade: R$ 2.490,00 por ciclo, enquanto o serviço estiver ativo. Seis mensalidades somam R$ 14.940,00.</p>
+      <p>Nos seis primeiros vencimentos, implantação e mensalidade caem juntas: 6 × R$ 3.640,00 = R$ 21.840,00. Esse número é a soma das duas obrigações, não um parcelamento de R$ 21.840,00.</p>
+      <p>Depois de 17/02/2027, se o serviço seguir, o vencimento do dia 17 é só de R$ 2.490,00.</p>
+      <p>Exemplo de leitura, não de data de assinatura: quem assina em setembro de 2026 paga R$ 3.640,00 na assinatura e R$ 3.640,00 em 17/10/2026. A data exata da assinatura permanece em branco até o ato.</p>
+    </div>
+
+    <h2>Campos a preencher antes da assinatura</h2>
+    <ol class="alpha">
+      <li><span class="pending">[CPF DO REPRESENTANTE DA CONTRATANTE — PENDENTE]</span></li>
+      <li><span class="pending">[ENDEREÇO COMPLETO DA CONTRATADA — PENDENTE]</span></li>
+      <li><span class="pending">[CPF DO REPRESENTANTE DA CONTRATADA — PENDENTE]</span></li>
+      <li><span class="pending">[E-MAIL PARA NOTIFICAÇÕES — PENDENTE]</span> e <span class="pending">[E-MAIL DA CONTRATADA PARA NOTIFICAÇÕES — PENDENTE]</span></li>
+      <li><span class="pending">[E-MAIL E TELEFONE DO INTERLOCUTOR — PENDENTE]</span></li>
+      <li><span class="pending">[DADOS PARA EMISSÃO DO BOLETO — PENDENTE]</span></li>
+      <li><span class="pending">[IDENTIFICAÇÃO DO CANAL DE WHATSAPP — PENDENTE]</span></li>
+      <li><span class="pending">[HORÁRIO DE RECEPÇÃO DOS REPASSES — PENDENTE]</span></li>
+      <li><span class="pending">[ANEXO DE SUBOPERADORES — PENDENTE]</span></li>
+      <li>Confirmar natureza jurídica da Contratada, sem substituir o nome já qualificado.</li>
+      <li>Aceitar ou substituir as marcas de validação: multa e juros, teto de responsabilidade, foro, prazos de cura, suspensão, sigilo e devolução de dados.</li>
+    </ol>
+
+    <h2 class="page-break">Assinaturas</h2>
+    <p>E, por estarem de acordo, as partes assinam este instrumento em duas vias de igual teor. O local e a data ficam em branco até a assinatura.</p>
+    <p><span class="pending">[LOCAL DA ASSINATURA — PENDENTE]</span>, <span class="pending">[DATA DA ASSINATURA — PENDENTE]</span>.</p>
+
+    <div class="sign-grid">
+      <div class="sign">
+        <div class="line">
+          <p><strong>Forms Gym LTDA</strong></p>
+          <p>Contratante</p>
+          <p>Carlos Eduardo Bedim Amorim</p>
+          <p>Sócio-administrador</p>
+        </div>
+      </div>
+      <div class="sign">
+        <div class="line">
+          <p><strong>Mateus Manoel Ferreira</strong></p>
+          <p>Contratada</p>
+          <p>CNPJ 43.317.136/0001-32</p>
+        </div>
+      </div>
+      <div class="sign">
+        <div class="line">
+          <p><strong>Testemunha</strong></p>
+          <p>Nome: <span class="pending">[NOME — PENDENTE]</span></p>
+          <p>CPF: <span class="pending">[CPF — PENDENTE]</span></p>
+        </div>
+      </div>
+      <div class="sign">
+        <div class="line">
+          <p><strong>Testemunha</strong></p>
+          <p>Nome: <span class="pending">[NOME — PENDENTE]</span></p>
+          <p>CPF: <span class="pending">[CPF — PENDENTE]</span></p>
+        </div>
+      </div>
+    </div>
+    <p class="fine">Duas testemunhas são sugeridas para revisão, em razão do art. 784, inciso III, do Código de Processo Civil, que trata de documento particular assinado pelo devedor e por duas testemunhas como título executivo. A inclusão não foi negociada como condição comercial e pode ser retirada se o advogado orientar outro meio de formalização.</p>
+    <p class="fine">Referências usadas na redação, para conferência do revisor, e não como parecer: Código de Processo Civil, arts. 63 e 784, inciso III; Código Civil, arts. 389, 392, 397, 406, 412, 413, 421, 422, 475, 593 a 599, 605, 607 e 610 a 626; Lei nº 13.709/2018, arts. 5º, 6º, 7º, 11, 16, 18, 33, 39, 42, 46, 47 e 48; Resolução CD/ANPD nº 15/2024, art. 6º.</p>
+  </main>
+</body>
+</html>

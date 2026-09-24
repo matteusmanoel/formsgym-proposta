@@ -1718,3 +1718,146 @@ p  { color: var(--text-dim); line-height: 1.7; }
 .next-steps strong { display: block; color: var(--text); }
 .next-steps span { color: var(--text-dim); font-size: 0.9rem; }
 @media (max-width: 640px) { .pay-split { grid-template-columns: 1fr; } }
+
+/* ════════════════════════════════════════
+   LP TRIM ADDITIONS
+   ════════════════════════════════════════ */
+.operacao-nota-curta {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.6;
+}
+.medicao-simples {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+.invest-footer-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.invest-footer-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  font-size: 0.81rem;
+  color: var(--text-dim);
+  line-height: 1.45;
+}
+.invest-footer-item svg { flex-shrink: 0; margin-top: 2px; color: var(--text-muted); }
+
+/* ════════════════════════════════════════
+   DEMO MOBILE OPEN BUTTON
+   ════════════════════════════════════════ */
+.demo-open-btn {
+  display: none;
+}
+@media (max-width: 900px) {
+  .demo-open-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    margin: 1rem 0 0;
+    padding: 0.85rem 1.4rem;
+    background: var(--energy);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    order: 10;
+  }
+  .demo-phone-wrapper {
+    display: none;
+  }
+}
+
+/* ════════════════════════════════════════
+   DEMO DIALOG (mobile fullscreen)
+   ════════════════════════════════════════ */
+#demo-dialog {
+  border: none;
+  padding: 0;
+  background: var(--bg-surface, #1a1e2e);
+  color: var(--text);
+  width: 100vw;
+  max-width: 100vw;
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0;
+  inset: 0;
+  border-radius: 0;
+  overflow: hidden;
+}
+#demo-dialog::backdrop {
+  background: rgba(0,0,0,0.75);
+}
+.demo-dialog-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.demo-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.demo-dialog-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.demo-dialog-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-family: inherit;
+}
+.demo-dialog-phone {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.demo-dialog-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg-surface, #1a1e2e);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.demo-dialog-footer .pace-btn {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.78rem;
+}
+.demo-dialog-footer .demo-pace {
+  display: flex;
+  gap: 0.25rem;
+}
+.demo-dialog-footer .demo-btn {
+  flex: 1;
+  min-width: 0;
+  justify-content: center;
+  font-size: 0.85rem;
+}

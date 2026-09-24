@@ -39,20 +39,20 @@ const CENARIOS = {
   novo: {
     label: 'Novo interessado',
     messages: [
-      { from: 'user', text: 'Oi! Vi vocês no Instagram e queria saber como funciona a academia.', time: '18:12' },
-      { from: 'agent', text: 'Oi! Aqui é a Ana, da Forms Gym.\n\nA gente trabalha com acompanhamento de verdade: avaliação física gratuita, um plano feito para você e alguém olhando a sua evolução. Não é ficha entregue e tchau.\n\nMe conta o que você está buscando agora?', time: '18:12', tag: 'perfil' },
+      { from: 'user', text: 'Oi! Vi vocês no Instagram e queria saber como funciona.', time: '18:12' },
+      { from: 'agent', text: 'Oi! Sou a Ana, da Forms Gym 😊\n\nAqui o treino vem com avaliação física gratuita e acompanhamento — não é ficha entregue e tchau.\n\nO que você tá buscando?', time: '18:12', tag: 'perfil' },
       { from: 'user', text: 'Quero perder peso e ter mais disposição. Nunca treinei direito.', time: '18:13' },
-      { from: 'agent', text: 'Faz sentido começar por uma aula experimental gratuita. Você conhece o espaço, faz a avaliação e a equipe já recebe o que você me contou — sem compromisso de matrícula.\n\nQuer que eu veja um horário?', time: '18:13', tag: 'interesse' },
-      { from: 'user', text: 'Quero sim. Pode ser quinta de manhã.', time: '18:14' },
-      { from: 'agent', text: 'Consultando horários simulados de quinta de manhã…', time: '18:14', isSystem: true },
-      { from: 'agent', text: 'Na quinta de manhã, nesta simulação, estão livres:\n\n7h · 8h · 9h · 10h\n\nQual fica melhor?', time: '18:14' },
+      { from: 'agent', text: 'Faz sentido começar por uma aula experimental gratuita. Você conhece o espaço, faz a avaliação e a equipe já sabe o que você me contou — sem compromisso de matrícula.\n\nQuer que eu veja um horário?', time: '18:13', tag: 'interesse' },
+      { from: 'user', text: 'Quero sim! Pode ser quinta de manhã.', time: '18:14' },
+      { from: 'agent', text: 'Verificando horários de quinta de manhã…', time: '18:14', isSystem: true },
+      { from: 'agent', text: 'Na quinta de manhã estão livres: 7h · 8h · 9h · 10h 🕘\n\nQual fica melhor pra você?', time: '18:14' },
       { from: 'user', text: '9h.', time: '18:15' },
-      { from: 'agent', text: 'Aula experimental reservada nesta simulação.\n\nCamila · quinta · 9h\nObjetivo: perda de peso e disposição\nChegar 10 minutos antes para a avaliação.\n\nA recepção já recebe esse contexto. Se precisar mudar o horário, é só me chamar. A matrícula, se fizer sentido, acontece com a equipe no dia.', time: '18:15', tag: 'agendamento' },
+      { from: 'agent', text: 'Tá reservado! 🎉\n\nCamila · quinta · 9h\nChegar 10 minutinhos antes pra avaliação.\n\nA recepção já fica por dentro. Se precisar mudar, é só me chamar. Matrícula, se rolar, fica com a equipe no dia.', time: '18:15', tag: 'agendamento' },
     ],
     backstage: {
       perfil: { icon: '💡', text: 'Objetivo: perda de peso e disposição · iniciante' },
       interesse: { icon: '📌', text: 'Aceitou aula experimental, sem pressão de matrícula' },
-      agendamento: { icon: '✅', text: 'Simulação · quinta 9h · contexto enviado à recepção' },
+      agendamento: { icon: '✅', text: 'Quinta 9h · contexto enviado à recepção' },
     },
     summary: {
       'O que a pessoa viu': 'Convite para aula gratuita e horário confirmado na conversa',
@@ -65,18 +65,18 @@ const CENARIOS = {
     label: 'Quanto custa?',
     messages: [
       { from: 'user', text: 'Oi, quanto custa a academia?', time: '14:02' },
-      { from: 'agent', text: 'Oi! Aqui é a Ana, da Forms Gym.\n\nA aula experimental é gratuita. Os planos são mensais, trimestrais e semestrais, e eu só informo o valor que está na tabela aprovada pela academia — não invento preço no meio da conversa.\n\nSe você me disser o objetivo, eu explico o caminho e, se quiser, já deixo um horário para você conhecer antes de escolher o plano.', time: '14:02', tag: 'preco' },
-      { from: 'user', text: 'Quero emagrecer. Pode ser um plano mensal, mas prefiro ver a academia antes.', time: '14:03' },
-      { from: 'agent', text: 'Perfeito. Então o próximo passo é a aula experimental, não a matrícula.\n\nTenho, nesta simulação, terça 19h, quarta 7h ou sábado 9h. Qual encaixa?', time: '14:03' },
+      { from: 'agent', text: 'Oi! Sou a Ana, da Forms Gym 😊\n\nA aula experimental é gratuita. Preço de plano eu pego direto da tabela da academia — não chuto valor aqui.\n\nQual é o seu objetivo? Me conta que eu explico o caminho.', time: '14:02', tag: 'preco' },
+      { from: 'user', text: 'Quero emagrecer. Posso conhecer antes de fechar?', time: '14:03' },
+      { from: 'agent', text: 'Claro! Então o primeiro passo é a aula experimental, não a matrícula.\n\nTenho terça 19h, quarta 7h ou sábado 9h disponíveis. Qual encaixa?', time: '14:03' },
       { from: 'user', text: 'Terça às 19h.', time: '14:04' },
-      { from: 'agent', text: 'Reservado nesta simulação: terça, 19h, aula experimental.\n\nA equipe recebe que você quer emagrecer, pediu preço e preferiu conhecer antes de fechar. No dia, uma pessoa apresenta a tabela oficial e tira a dúvida do plano.', time: '14:04', tag: 'agendamento' },
+      { from: 'agent', text: 'Reservado! ✅ Terça, 19h, aula experimental.\n\nA equipe fica sabendo que você quer emagrecer e preferiu conhecer antes de fechar. No dia, uma pessoa apresenta a tabela e tira a dúvida do plano.', time: '14:04', tag: 'agendamento' },
     ],
     backstage: {
       preco: { icon: '💰', text: 'Pergunta de preço respondida sem valor inventado' },
       agendamento: { icon: '✅', text: 'Terça 19h · fechamento fica com a equipe presencial' },
     },
     summary: {
-      'O que a pessoa viu': 'Aula gratuita é de graça; preço de plano só da tabela aprovada',
+      'O que a pessoa viu': 'Aula experimental gratuita; preço de plano só da tabela oficial',
       'O que a equipe recebe': 'Pediu valor, quer emagrecer, aula terça 19h',
       'Próxima ação': 'Apresentar a tabela oficial na aula. Não deixar o agente negociar plano.',
     },
@@ -85,12 +85,12 @@ const CENARIOS = {
     label: 'Quero começar, mas estou inseguro',
     messages: [
       { from: 'user', text: 'Quero começar, mas tenho medo de não conseguir manter.', time: '09:20' },
-      { from: 'agent', text: 'Isso é mais comum do que parece. Me conta o que aconteceu da última vez que você tentou?', time: '09:20' },
+      { from: 'agent', text: 'Isso é mais comum do que parece 🙂\n\nMe conta o que aconteceu da última vez que você tentou?', time: '09:20' },
       { from: 'user', text: 'Fui numa academia grande, ninguém me orientou e parei em três semanas.', time: '09:21', tag: 'perfil' },
-      { from: 'agent', text: 'Aqui a proposta é outra: avaliação física, um caminho para você e acompanhamento enquanto você evolui. A gente chama isso de pegar na mão.\n\nUma aula experimental gratuita serve justamente para você sentir isso antes de decidir. Sem pressão.', time: '09:21', tag: 'acolhimento' },
+      { from: 'agent', text: 'Faz sentido ter parado assim. Aqui é diferente: avaliação física, um caminho pensado pra você e alguém olhando sua evolução.\n\nUma aula experimental gratuita serve pra você sentir isso antes de decidir — sem pressão nenhuma.', time: '09:21', tag: 'acolhimento' },
       { from: 'user', text: 'Pode ser sábado de manhã. Meu nome é Fernanda.', time: '09:22' },
-      { from: 'agent', text: 'Consultando sábado de manhã nesta simulação…', time: '09:22', isSystem: true },
-      { from: 'agent', text: 'Sábado, 9h, está livre para você, Fernanda.\n\nAula experimental reservada. A equipe já sabe que você parou antes por falta de orientação — então a recepção começa pela avaliação, não por um discurso de venda.', time: '09:23', tag: 'agendamento' },
+      { from: 'agent', text: 'Verificando sábado de manhã…', time: '09:22', isSystem: true },
+      { from: 'agent', text: 'Sábado, 9h, tá livre pra você, Fernanda! 🎉\n\nA equipe já sabe que você parou antes por falta de orientação — então começa pela avaliação, não por papo de vendas.', time: '09:23', tag: 'agendamento' },
     ],
     backstage: {
       perfil: { icon: '💡', text: 'Experiência anterior sem suporte · parou em 3 semanas' },
@@ -108,12 +108,12 @@ const CENARIOS = {
     label: 'Reagendar aula',
     messages: [
       { from: 'user', text: 'Oi, preciso mudar minha aula experimental de quinta às 9h.', time: '16:40' },
-      { from: 'agent', text: 'Oi, Marcos. Achei sua aula experimental de quinta, 9h.\n\nQuer outro dia ou só outro horário na quinta?', time: '16:40', tag: 'anterior' },
+      { from: 'agent', text: 'Oi, Marcos! Achei a aula de quinta, 9h.\n\nQuer só mudar o horário ou prefere outro dia?', time: '16:40', tag: 'anterior' },
       { from: 'user', text: 'Sexta no fim da tarde, se tiver.', time: '16:41' },
-      { from: 'agent', text: 'Olhando a sexta à tarde nesta simulação…', time: '16:41', isSystem: true },
-      { from: 'agent', text: 'Sexta tem 17h e 19h. A quinta 9h continua sua até você escolher — não cancelo os dois.', time: '16:41' },
-      { from: 'user', text: 'Pode ser sexta às 19h.', time: '16:42' },
-      { from: 'agent', text: 'Pronto, nesta simulação:\n\nQuinta 9h · liberada\nSexta 19h · sua aula experimental\n\nA recepção recebe a troca. Se a sexta não servir, a gente ajusta de novo.', time: '16:42', tag: 'agenda' },
+      { from: 'agent', text: 'Olhando a sexta à tarde…', time: '16:41', isSystem: true },
+      { from: 'agent', text: 'Tem 17h e 19h na sexta. A quinta 9h continua sua até você escolher — não cancelo os dois.', time: '16:41' },
+      { from: 'user', text: 'Sexta às 19h então.', time: '16:42' },
+      { from: 'agent', text: 'Feito! ✅\n\nQuinta 9h · liberada\nSexta 19h · sua aula experimental\n\nA recepção já recebe a troca. Se precisar ajustar de novo, é só chamar.', time: '16:42', tag: 'agenda' },
     ],
     backstage: {
       anterior: { icon: '📅', text: 'Aula localizada: quinta 9h · Marcos' },
@@ -129,11 +129,11 @@ const CENARIOS = {
     label: 'Cancelar aula',
     messages: [
       { from: 'user', text: 'Preciso cancelar minha aula de sábado às 9h.', time: '11:05' },
-      { from: 'agent', text: 'Fernanda, só para eu não cancelar a aula errada: é a experimental de sábado, 9h?', time: '11:05', tag: 'confirma' },
+      { from: 'agent', text: 'Fernanda, só pra ter certeza que não cancelo a errada: é a experimental de sábado, 9h?', time: '11:05', tag: 'confirma' },
       { from: 'user', text: 'Isso. Não vou conseguir ir.', time: '11:06' },
-      { from: 'agent', text: 'Cancelei nesta simulação. Sábado 9h voltou para a agenda.\n\nSe quiser outro dia, eu te mostro opções. Se preferir deixar para depois, tudo bem — sem insistência.', time: '11:06', tag: 'cancelada' },
+      { from: 'agent', text: 'Cancelado! O sábado 9h voltou pra agenda.\n\nSe quiser marcar outro dia, me fala. Se preferir deixar pra depois, tudo bem — sem insistência 🙂', time: '11:06', tag: 'cancelada' },
       { from: 'user', text: 'Pode deixar. Qualquer dia eu chamo.', time: '11:07' },
-      { from: 'agent', text: 'Combinado. Quando quiser retomar, a conversa continua daqui. A equipe fica sabendo que a aula saiu da agenda e que você não pediu um novo horário.', time: '11:07' },
+      { from: 'agent', text: 'Combinado! Quando quiser retomar é só chamar por aqui. A equipe fica sabendo que a aula saiu da agenda.', time: '11:07' },
     ],
     backstage: {
       confirma: { icon: '🗓️', text: 'Confirmação antes de cancelar: sábado 9h' },
@@ -149,19 +149,53 @@ const CENARIOS = {
     label: 'Renovação de plano',
     messages: [
       { from: 'user', text: 'Meu plano venceu. Como eu renovo?', time: '15:10' },
-      { from: 'agent', text: 'Consultando a fonte autorizada da academia, nesta simulação…', time: '15:10', isSystem: true },
-      { from: 'agent', text: 'Encontrei uma renovação pendente no cadastro simulado. O valor e o link abaixo são fictícios — esta página não cobra nada e eu não confirmo pagamento.\n\nLink de demonstração, que não funciona de verdade:\nhttps://exemplo.invalid/formsgym-renovacao-simulada\n\nSe o valor não bater, ou se você quiser contestar, eu chamo uma pessoa da equipe.', time: '15:11', tag: 'link' },
+      { from: 'agent', text: 'Verificando a situação do seu cadastro…', time: '15:10', isSystem: true },
+      { from: 'agent', text: 'Oi! Encontrei uma renovação pendente aqui 😊\n\nLink de renovação (simulado — não funciona de verdade):\nhttps://exemplo.invalid/formsgym-renovacao\n\nSe o valor não estiver certo ou quiser contestar, me fala que eu chamo alguém da equipe.', time: '15:11', tag: 'link' },
       { from: 'user', text: 'Achei estranho. Prefiro falar com alguém.', time: '15:12' },
-      { from: 'agent', text: 'Certo. Parei por aqui e passei para uma pessoa.\n\nEla recebe o histórico, a pendência simulada e o pedido de contestação. Eu não negocio dívida e não digo que o pagamento foi feito.', time: '15:12', tag: 'humano' },
+      { from: 'agent', text: 'Claro! Já passei pra uma pessoa da equipe 👋\n\nEla recebe o histórico e a pendência. Eu não negocio valor e não confirmo que o pagamento foi feito.', time: '15:12', tag: 'humano' },
     ],
     backstage: {
       link: { icon: '🔗', text: 'Link fictício · valor não decidido pelo agente' },
       humano: { icon: '👤', text: 'Contestação transferida · pagamento não confirmado' },
     },
     summary: {
-      'O que a pessoa viu': 'Link claramente falso, em exemplo.invalid',
+      'O que a pessoa viu': 'Link de renovação simulado em exemplo.invalid',
       'O que a equipe recebe': 'Renovação contestada · precisa de atendimento humano',
       'Limite': 'Sem cobrança real, sem negociação de dívida, sem confirmação de pagamento',
+    },
+  },
+  cobranca: {
+    label: 'Plano vencido',
+    messages: [
+      { from: 'agent', text: 'Oi, Lucas! Tudo bem?\n\nSeu plano venceu ontem e a academia pediu pra eu te avisar. Fica tranquilo — a intenção é só te dar a opção de renovar antes de perder o acesso.\n\nLink de renovação (simulado — não funciona de verdade):\nhttps://exemplo.invalid/formsgym-cobranca\n\nSe tiver qualquer dúvida no valor ou quiser contestar, me fala que eu chamo uma pessoa da equipe agora.', time: '10:05', tag: 'aviso' },
+      { from: 'user', text: 'Esse valor não tá certo, acho que tenho desconto.', time: '10:07' },
+      { from: 'agent', text: 'Entendido. Não vou contestar valor por aqui — isso é com a equipe.\n\nJá avisei e uma pessoa vai entrar em contato pra resolver com você. Nenhum pagamento foi feito nem confirmado por mim.', time: '10:07', tag: 'humano' },
+    ],
+    backstage: {
+      aviso: { icon: '📣', text: 'Aviso proativo de vencimento · link fictício · sem cobrar' },
+      humano: { icon: '👤', text: 'Contestação repassada · agente não negocia desconto' },
+    },
+    summary: {
+      'Tipo': 'Cobrança proativa — plano venceu ontem',
+      'O que o agente fez': 'Avisou, enviou link fictício, transferiu contestação à equipe',
+      'Limite': 'Não negocia desconto, não confirma pagamento',
+    },
+  },
+  pagamento_pendente: {
+    label: 'Mensalidade atrasada',
+    messages: [
+      { from: 'agent', text: 'Oi, Juliana! 👋\n\nA academia me pediu pra te avisar que a mensalidade deste mês ainda não foi identificada no sistema. Pode ser só um delay do banco — mas quis te dar um aviso antes de virar pendência.\n\nLink de pagamento (simulado — não funciona de verdade):\nhttps://exemplo.invalid/formsgym-mensalidade\n\nQualquer dúvida, me fala!', time: '09:00', tag: 'aviso' },
+      { from: 'user', text: 'Paguei ontem! Pode checar?', time: '09:03' },
+      { from: 'agent', text: 'Ah, deve ser o delay mesmo! Fico feliz que já tenha pago 😊\n\nVou repassar pra equipe financeira conferir no sistema. Pode acontecer de o banco demorar um dia pra processar.\n\nSe der qualquer problema, eles entram em contato. Obrigada!', time: '09:04', tag: 'repassado' },
+    ],
+    backstage: {
+      aviso: { icon: '⏰', text: 'Aviso preventivo de atraso · link fictício · sem cobrar' },
+      repassado: { icon: '✅', text: 'Confirmação de pagamento repassada à equipe financeira' },
+    },
+    summary: {
+      'Tipo': 'Aviso preventivo de mensalidade pendente',
+      'O que o agente fez': 'Avisou com leveza, recebeu confirmação, repassou à equipe',
+      'Limite': 'Não confirma nem nega pagamento — quem verifica é o sistema',
     },
   },
 };
@@ -174,7 +208,7 @@ const demoState = {
   scenario: 'novo',
   step: -1,
   done: false,
-  pace: 1,
+  pace: 1.7,
 };
 
 let playGeneration = 0;
@@ -343,6 +377,11 @@ function renderMessage(msg) {
     return;
   }
 
+  // Play tone on message appear
+  if (!prefersReducedMotion()) {
+    playTone(msg.from === 'user' ? 'user' : 'agent');
+  }
+
   const isUser = msg.from === 'user';
   const wrapper = document.createElement('div');
   wrapper.className = `wa-msg-wrapper from-${msg.from}`;
@@ -417,6 +456,7 @@ document.querySelectorAll('.scenario-tab').forEach(tab => {
     tab.classList.add('active');
     tab.setAttribute('aria-selected', 'true');
     demoState.scenario = tab.dataset.scenario;
+    if (dialogTitle) dialogTitle.textContent = tab.querySelector('.tab-text')?.textContent || 'Simulação';
     playScenario();
   });
 });
@@ -529,6 +569,123 @@ window.addEventListener('scroll', () => {
     ? 'rgba(10,10,16,0.96)'
     : 'rgba(10,10,16,0.88)';
 }, { passive: true });
+
+/* ═══════════════════════════════════════════════
+   AUDIO TONES (Web AudioContext — no external files)
+   ═══════════════════════════════════════════════ */
+let audioCtx = null;
+let audioUnlocked = false;
+
+function unlockAudio() {
+  if (audioUnlocked) return;
+  try {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    audioUnlocked = true;
+  } catch (_) { /* unsupported */ }
+}
+
+// Activate audio on first user gesture
+['click', 'touchstart', 'keydown'].forEach(evt =>
+  document.addEventListener(evt, unlockAudio, { once: true, passive: true })
+);
+
+function playTone(type) {
+  if (prefersReducedMotion() || !audioUnlocked || !audioCtx) return;
+  try {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    if (type === 'user') {
+      osc.frequency.setValueAtTime(1400, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime + 0.08);
+    } else {
+      osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.09, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime + 0.1);
+    }
+  } catch (_) { /* silently fail */ }
+}
+
+/* ═══════════════════════════════════════════════
+   MOBILE DEMO DIALOG
+   ═══════════════════════════════════════════════ */
+const demoDialog    = document.getElementById('demo-dialog');
+const demoOpenBtn   = document.getElementById('demo-open-btn');
+const demoCloseBtn  = document.getElementById('demo-dialog-close');
+const dialogPhone   = document.getElementById('demo-dialog-phone');
+const dialogTitle   = document.getElementById('demo-dialog-title');
+
+function isMobileDemo() {
+  return window.innerWidth <= 900;
+}
+
+function openDemoDialog() {
+  if (!demoDialog) return;
+  // Sync current scenario label to dialog title
+  const activeTab = document.querySelector('.scenario-tab.active');
+  if (activeTab && dialogTitle) {
+    dialogTitle.textContent = activeTab.querySelector('.tab-text')?.textContent || 'Simulação';
+  }
+  // Move chat into dialog
+  if (chatEl && dialogPhone) {
+    dialogPhone.appendChild(chatEl);
+  }
+  demoDialog.showModal();
+  // Auto-scroll to bottom
+  chatEl.scrollTop = chatEl.scrollHeight;
+}
+
+function closeDemoDialog() {
+  if (!demoDialog) return;
+  // Move chat back to original wrapper
+  const wrapper = document.getElementById('demo-phone-wrapper');
+  const phoneEl = wrapper?.querySelector('.demo-phone');
+  if (chatEl && wrapper) {
+    // Re-insert chat into phone div inside wrapper
+    if (phoneEl) phoneEl.appendChild(chatEl);
+    else wrapper.appendChild(chatEl);
+  }
+  demoDialog.close();
+}
+
+if (demoOpenBtn) {
+  demoOpenBtn.addEventListener('click', () => {
+    unlockAudio();
+    openDemoDialog();
+  });
+}
+if (demoCloseBtn) {
+  demoCloseBtn.addEventListener('click', closeDemoDialog);
+}
+if (demoDialog) {
+  demoDialog.addEventListener('click', (e) => {
+    if (e.target === demoDialog) closeDemoDialog();
+  });
+}
+
+// Dialog advance / reset buttons mirror main controls
+const btnAdvanceDialog = document.getElementById('btn-advance-dialog');
+const btnResetDialog   = document.getElementById('btn-reset-dialog');
+if (btnAdvanceDialog) btnAdvanceDialog.addEventListener('click', advanceDemo);
+if (btnResetDialog)   btnResetDialog.addEventListener('click', playScenario);
+
+// Dialog pace buttons sync with global state
+document.querySelectorAll('#demo-dialog .pace-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    demoState.pace = Number(btn.dataset.pace) || 1.7;
+    // Sync all pace buttons (both in page and dialog)
+    document.querySelectorAll('.pace-btn').forEach(b => {
+      b.classList.toggle('active', Number(b.dataset.pace) === demoState.pace);
+    });
+  });
+});
 
 /* ═══════════════════════════════════════════════
    INIT
