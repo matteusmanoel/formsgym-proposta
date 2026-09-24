@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forms Gym — Atendimento Inteligente no WhatsApp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ───────────── PRESENTER PANEL ───────────── -->
+<aside id="presenter-panel" aria-label="Notas do apresentador" role="complementary">
+  <div class="presenter-header">
+    <span class="presenter-badge">Modo Apresentador</span>
+    <kbd>P</kbd> para fechar
+  </div>
+  <div class="presenter-body">
+    <div class="pnote" data-section="hero">
+      <h4>Hero</h4>
+      <p>Deixe Cadu ler em silêncio. A abertura deve provocar reconhecimento, não desconforto. Se ele concordar com a cabeça, avance. Se ele franzir o cenho, pergunte: "Isso não soa familiar?"</p>
+    </div>
+    <div class="pnote" data-section="diagnostico">
+      <h4>Diagnóstico</h4>
+      <p>Não aponte falha na equipe — aponte dependência sistêmica. Pergunte: <em>"Quando você não está, como o WhatsApp costuma ser respondido?"</em></p>
+    </div>
+    <div class="pnote" data-section="visao">
+      <h4>Visão</h4>
+      <p>Mostre o contraste. Diga: <em>"Isso é o que acontece hoje. E é o que propomos colocar no lugar."</em> Pause antes de rolar para baixo.</p>
+    </div>
+    <div class="pnote" data-section="metodo">
+      <h4>Método Forms Gym</h4>
+      <p>Reforce o diferencial que ele próprio mencionou: "pegar na mão". Diga: <em>"A avaliação física gratuita é um ponto que muito diferencia vocês. A demo vai mostrar como isso aparece no atendimento."</em></p>
+    </div>
+    <div class="pnote" data-section="demo">
+      <h4>Demo Interativa</h4>
+      <p>Peça a Cadu para escolher o cenário. Deixe ele clicar em "Iniciar". Use "Próximo" para avançar no ritmo da conversa. Ao final, mostre o painel de resumo e explique: <em>"Isso é o que chega para a recepcionista."</em></p>
+    </div>
+    <div class="pnote" data-section="operacao">
+      <h4>Operação</h4>
+      <p>Deixe claro: o agendamento confirmatório ainda passa pela equipe hoje. A integração com SCA vem depois da validação técnica. Não prometa automação antes de verificar os acessos.</p>
+    </div>
+    <div class="pnote" data-section="implementacao">
+      <h4>Implementação</h4>
+      <p>Mostre que há um processo, não uma promessa vaga. Se Cadu perguntar sobre prazo, reforce: <em>"Início previsto para a semana seguinte à contratação e acessos confirmados."</em></p>
+    </div>
+    <div class="pnote" data-section="medicao">
+      <h4>Medição</h4>
+      <p>Diga: <em>"A gente não inventa baseline. Começamos a construir os dados na semana 1 de operação. O que importa é que você vai enxergar o movimento."</em></p>
+    </div>
+    <div class="pnote" data-section="investimento">
+      <h4>Investimento</h4>
+      <p>Apresente as duas opções e PARE. Deixe Cadu escolher. Não empurre a opção B se ele não tiver inclinação. A pergunta de fechamento está na tela — deixe ela trabalhar. Não adicione palavras.</p>
+    </div>
+  </div>
+</aside>
+
+<!-- ───────────── NAV ───────────── -->
+<nav id="main-nav" role="navigation" aria-label="Navegação principal">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="Forms Gym">
+      <img src="formsgym-logo.jpg" alt="Forms Gym" class="logo-img">
+      <span class="logo-name">Forms Gym</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#diagnostico">Diagnóstico</a></li>
+      <li><a href="#demo">Demo</a></li>
+      <li><a href="#operacao">Proposta</a></li>
+      <li><a href="#investimento" class="nav-cta">Investimento</a></li>
+    </ul>
+    <!-- presenter toggle removed; accessible via ?backstage=1 -->
+  </div>
+</nav>
+
+<!-- ───────────── HERO ───────────── -->
+<section id="hero" class="section-hero">
+  <div class="hero-bg-grid" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content reveal">
+      <div class="hero-pill">
+        <img src="formsgym-logo.jpg" alt="" class="pill-logo" aria-hidden="true">
+        Proposta exclusiva · Forms Gym
+      </div>
+      <h1 class="hero-title">
+        O melhor atendimento da Forms Gym
+        <span class="text-gradient">depende de Cadu estar disponível.</span>
+        <br>Isso precisa mudar.
+      </h1>
+      <p class="hero-subtitle">
+        Vamos transformar a forma como você atende, orienta e conduz cada interessado — para que a academia continue convertendo enquanto você concentra energia onde importa: na gestão, na equipe e na experiência do aluno.
+      </p>
+      <div class="hero-actions">
+        <a href="#demo" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg>
+          Ver a demonstração
+        </a>
+        <a href="#operacao" class="btn btn-ghost">
+          Entender a proposta
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 12.84a19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          WhatsApp como canal
+        </div>
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          Atendimento que escala
+        </div>
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Resultado mensurável
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#diagnostico" class="scroll-indicator" aria-label="Rolar para próxima seção">
+    <span class="scroll-dot"></span>
+  </a>
+</section>
+
+<!-- ───────────── DIAGNÓSTICO ───────────── -->
+<section id="diagnostico" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Como está hoje</div>
+      <h2>O que a gente identificou na reunião</h2>
+      <p class="section-sub">Não é crítica à equipe. É o retrato de uma operação que depende demais de uma única pessoa para funcionar no seu melhor nível.</p>
+    </div>
+    <div class="cards-grid-3 mt-12">
+      <div class="glass-card card-pain reveal">
+        <div class="card-icon card-icon-warn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/><path d="M8 6h8M8 10h8M8 14h4"/></svg>
+        </div>
+        <h3>Dois recepcionistas, duas prioridades</h3>
+        <p>O WhatsApp divide atenção com o balcão. Quando a academia está cheia, a resposta espera. O interessado que mandou mensagem às 14h pode estar pensando em outra academia às 17h.</p>
+        <div class="card-signal">Atendimento reativo</div>
+      </div>
+      <div class="glass-card card-pain reveal" style="--reveal-delay: 0.1s">
+        <div class="card-icon card-icon-warn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h3>A conversa que esfria</h3>
+        <p>O interessado mandou mensagem, ficou esperando, perdeu o impulso. Quando a resposta chegou, o momento já tinha passado. Ninguém soube a hora certa de retomar.</p>
+        <div class="card-signal">Oportunidade perdida</div>
+      </div>
+      <div class="glass-card card-highlight reveal" style="--reveal-delay: 0.2s">
+        <div class="card-icon card-icon-energy">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3>Quando Cadu atende, converte</h3>
+        <p>O padrão do atendimento muda dependendo de quem está na linha. Isso não é culpa da equipe — é uma lacuna de processo. O critério comercial do Cadu não está documentado em lugar nenhum.</p>
+        <div class="card-signal card-signal-energy">Oportunidade real</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── VISÃO DESEJADA ───────────── -->
+<section id="visao" class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Como pode ser</div>
+      <h2>O critério do Cadu, disponível para cada interessado</h2>
+      <p class="section-sub">E se a qualidade do seu atendimento estivesse disponível às 7h, ao meio-dia, às 22h — enquanto você estava numa avaliação, numa reunião, ou simplesmente descansando?</p>
+    </div>
+    <div class="before-after reveal mt-12">
+      <div class="ba-col ba-before">
+        <div class="ba-label ba-label-before">Hoje</div>
+        <ul class="ba-list">
+          <li>
+            <svg class="ba-icon-x" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+            Resposta quando alguém está livre
+          </li>
+          <li>
+            <svg class="ba-icon-x" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+            Tom e abordagem variam por atendente
+          </li>
+          <li>
+            <svg class="ba-icon-x" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+            Sem qualificação estruturada do interesse
+          </li>
+          <li>
+            <svg class="ba-icon-x" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+            Equipe sem contexto quando o aluno chega
+          </li>
+          <li>
+            <svg class="ba-icon-x" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+            Cadu precisa estar presente para converter
+          </li>
+        </ul>
+      </div>
+      <div class="ba-divider" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+      <div class="ba-col ba-after">
+        <div class="ba-label ba-label-after">Com o agente</div>
+        <ul class="ba-list">
+          <li>
+            <svg class="ba-icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Resposta em segundos, qualquer horário
+          </li>
+          <li>
+            <svg class="ba-icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Tom e abordagem consistentes, alinhados com Cadu
+          </li>
+          <li>
+            <svg class="ba-icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Objetivo, momento e disponibilidade identificados
+          </li>
+          <li>
+            <svg class="ba-icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Recepção recebe contexto antes do aluno chegar
+          </li>
+          <li>
+            <svg class="ba-icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Cadu livre para gerenciar, fechar e entregar
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── MÉTODO FORMS GYM ───────────── -->
+<section id="metodo" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">O diferencial</div>
+      <h2>A Forms Gym acompanha.<br>Não entrega e abandona.</h2>
+      <p class="section-sub">A avaliação física gratuita e recorrente não é um brinde — é a promessa de que alguém vai observar e corrigir o caminho. Esse é o ativo central da proposta.</p>
+    </div>
+    <div class="cards-grid-4 mt-12">
+      <div class="glass-card method-card reveal">
+        <div class="method-number">01</div>
+        <div class="method-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3>Acompanhamento individualizado</h3>
+        <p>Cada aluno tem um caminho. A equipe conhece o histórico e ajusta o planejamento conforme a evolução — não é treino genérico.</p>
+      </div>
+      <div class="glass-card method-card reveal" style="--reveal-delay: 0.1s">
+        <div class="method-number">02</div>
+        <div class="method-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Avaliação física gratuita e recorrente</h3>
+        <p>Desde o primeiro dia, o aluno sabe onde está e para onde vai. A avaliação não é opcional — é parte do serviço que a Forms Gym entrega.</p>
+      </div>
+      <div class="glass-card method-card reveal" style="--reveal-delay: 0.2s">
+        <div class="method-number">03</div>
+        <div class="method-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h3>Evolução visível e documentada</h3>
+        <p>O aluno vê o progresso. Isso cria comprometimento, reduz evasão e transforma matrícula em resultado concreto — que ele conta para outros.</p>
+      </div>
+      <div class="glass-card method-card method-card-featured reveal" style="--reveal-delay: 0.3s">
+        <div class="method-number">04</div>
+        <div class="method-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <h3>Aula experimental como primeiro passo real</h3>
+        <p>Não é uma isca. É o primeiro momento do acompanhamento. O agente conduz o interessado até aqui — e a equipe presencial recebe o contexto para continuar.</p>
+        <div class="method-tag">Ponto de transição</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── DEMO INTERATIVA ───────────── -->
+<section id="demo" class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label demo-label">
+        <span class="demo-badge">⚡ Simulação do atendimento</span>
+        <span class="demo-disclaimer">· não representa conversa ao vivo</span>
+      </div>
+      <h2>Veja como um interessado é atendido</h2>
+      <p class="section-sub">Escolha um cenário e acompanhe a conversa. No final, veja o resumo que chega para a recepção.</p>
+    </div>
+
+    <div class="demo-wrapper reveal mt-12">
+      <!-- Left: Controls -->
+      <div class="demo-controls">
+        <div class="demo-scenarios-label">Escolha um cenário</div>
+        <div class="demo-scenario-tabs" role="tablist" aria-label="Cenários de demonstração">
+          <button class="scenario-tab active" data-scenario="preco" role="tab" aria-selected="true" aria-controls="chat-area">
+            <span class="tab-icon">💰</span>
+            <span class="tab-text">Quanto custa?</span>
+          </button>
+          <button class="scenario-tab" data-scenario="inseguro" role="tab" aria-selected="false" aria-controls="chat-area">
+            <span class="tab-icon">🤔</span>
+            <span class="tab-text">Quero começar, mas estou inseguro</span>
+          </button>
+          <button class="scenario-tab" data-scenario="aula" role="tab" aria-selected="false" aria-controls="chat-area">
+            <span class="tab-icon">🏋️</span>
+            <span class="tab-text">Quero fazer uma aula</span>
+          </button>
+        </div>
+
+        <div class="demo-play-controls">
+          <button id="btn-play" class="demo-btn demo-btn-primary" aria-label="Iniciar demonstração">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Iniciar
+          </button>
+          <button id="btn-step" class="demo-btn demo-btn-secondary" aria-label="Próxima mensagem" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Próximo
+          </button>
+          <button id="btn-reset" class="demo-btn demo-btn-ghost" aria-label="Reiniciar demonstração" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+            Reiniciar
+          </button>
+        </div>
+
+        <!-- Backstage tags -->
+        <div class="backstage-panel">
+          <div class="backstage-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Sistema (bastidores)
+          </div>
+          <div id="backstage-tags" class="backstage-tags" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <!-- Right: Phone mockup -->
+      <div class="demo-phone-wrapper">
+        <div class="demo-phone" role="region" id="chat-area" aria-label="Conversa simulada">
+          <!-- WhatsApp Header -->
+          <div class="wa-header">
+            <div class="wa-avatar wa-avatar-logo" aria-hidden="true">
+            <img src="formsgym-logo.jpg" alt="" class="wa-avatar-img">
+          </div>
+            <div class="wa-info">
+              <div class="wa-name">Ana · Forms Gym</div>
+              <div class="wa-status">
+                <span class="wa-online-dot" aria-hidden="true"></span>
+                online
+              </div>
+            </div>
+            <div class="wa-actions" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 12.84a19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+            </div>
+          </div>
+
+          <!-- Chat Area -->
+          <div class="wa-chat" id="wa-chat-messages" aria-live="polite" aria-atomic="false">
+            <div class="wa-date-divider">
+              <span>HOJE</span>
+            </div>
+            <!-- Messages injected by JS -->
+            <div class="wa-empty-state" id="wa-empty">
+              <div class="wa-empty-icon" aria-hidden="true">💬</div>
+              <p>Selecione um cenário e clique em <strong>Iniciar</strong></p>
+            </div>
+          </div>
+
+          <!-- Input Area -->
+          <div class="wa-input-bar" aria-hidden="true">
+            <div class="wa-input-inner">
+              <span class="wa-input-placeholder">Mensagem</span>
+            </div>
+            <div class="wa-mic-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary Panel (appears at end) -->
+    <div id="demo-summary" class="demo-summary" aria-live="polite" hidden>
+      <div class="summary-header">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Resumo para a equipe
+      </div>
+      <div id="summary-content" class="summary-content"></div>
+      <div class="summary-note">
+        Esta ficha chega para a recepção antes do interessado aparecer na academia.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ───────────── OPERAÇÃO PROPOSTA ───────────── -->
+<section id="operacao" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Como funciona</div>
+      <h2>Do primeiro contato ao agendamento</h2>
+      <p class="section-sub">O fluxo que propomos para transformar conversas no WhatsApp em aulas experimentais agendadas — com a equipe no lugar certo de cada etapa.</p>
+    </div>
+
+    <div class="flow-pipeline reveal mt-12">
+      <div class="flow-step">
+        <div class="flow-icon flow-icon-primary">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 12.84a19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="flow-label">Novo contato no WhatsApp</div>
+      </div>
+      <div class="flow-arrow" aria-hidden="true">→</div>
+      <div class="flow-step">
+        <div class="flow-icon flow-icon-energy">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="flow-label">Agente responde em segundos</div>
+      </div>
+      <div class="flow-arrow" aria-hidden="true">→</div>
+      <div class="flow-step">
+        <div class="flow-icon flow-icon-blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+        </div>
+        <div class="flow-label">Entende objetivo e momento</div>
+      </div>
+      <div class="flow-arrow" aria-hidden="true">→</div>
+      <div class="flow-step">
+        <div class="flow-icon flow-icon-green">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+        </div>
+        <div class="flow-label">Convida para aula experimental</div>
+      </div>
+      <div class="flow-arrow" aria-hidden="true">→</div>
+      <div class="flow-step">
+        <div class="flow-icon flow-icon-primary">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="flow-label">Recepção confirma e acolhe</div>
+      </div>
+      <div class="flow-arrow" aria-hidden="true">→</div>
+      <div class="flow-step flow-step-final">
+        <div class="flow-icon flow-icon-green">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="flow-label">Aluno chega. Avaliação física.</div>
+      </div>
+    </div>
+
+    <div class="operacao-nota reveal mt-8">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span>O agendamento passa pela recepção hoje — e pode ser automatizado diretamente no SCA assim que validarmos o acesso técnico. A integração não é condição para o agente funcionar.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── IMPLEMENTAÇÃO ───────────── -->
+<section id="implementacao" class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Cronograma</div>
+      <h2>De hoje até operacional</h2>
+      <p class="section-sub">Início previsto na semana seguinte à contratação e confirmação de acessos. Janela estimada de 30 a 45 dias para implantação completa.</p>
+    </div>
+
+    <div class="timeline reveal mt-12">
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content glass-card">
+          <div class="timeline-week">Semana 1</div>
+          <h3>Contratação e acessos</h3>
+          <p>Assinatura do contrato, coleta de acessos necessários, briefing completo com Cadu sobre tom de voz, roteiros aprovados e regras de negócio.</p>
+          <div class="timeline-gate">Integração com SCA/Agulha: avaliada nesta etapa</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content glass-card">
+          <div class="timeline-week">Semanas 2–3</div>
+          <h3>Configuração e roteiros</h3>
+          <p>Desenvolvimento do agente com a linguagem da Forms Gym. Aprovação de roteiros de conversa, respostas a dúvidas frequentes e regras de transferência humana com Cadu.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content glass-card">
+          <div class="timeline-week">Semanas 4–5</div>
+          <h3>Testes em ambiente controlado</h3>
+          <p>Testes com cenários reais antes de entrar em produção. Ajustes finos. Treinamento da equipe de recepção para receber os resumos do agente.</p>
+        </div>
+      </div>
+      <div class="timeline-item timeline-item-final">
+        <div class="timeline-marker timeline-marker-active"></div>
+        <div class="timeline-content glass-card glass-card-featured">
+          <div class="timeline-week">Semana 6+</div>
+          <h3>Operação e refinamento</h3>
+          <p>Entrada em produção gradual e monitorada. Revisão semanal das conversas reais. Ajustes conforme cenários que a operação revelar.</p>
+          <div class="timeline-live-badge">🟢 Ao vivo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── MEDIÇÃO ───────────── -->
+<section id="medicao" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Transparência</div>
+      <h2>O que vamos acompanhar</h2>
+      <p class="section-sub">Não prometemos números que não temos como garantir. Comprometemos a medir, tornar visível e ajustar com base no que os dados reais mostrarem.</p>
+    </div>
+
+    <div class="metrics-grid reveal mt-12">
+      <div class="metric-card glass-card">
+        <div class="metric-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <div class="metric-label">Conversas iniciadas</div>
+        <div class="metric-desc">por semana no canal</div>
+      </div>
+      <div class="metric-card glass-card">
+        <div class="metric-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="metric-label">Interessados qualificados</div>
+        <div class="metric-desc">chegaram ao convite de aula</div>
+      </div>
+      <div class="metric-card glass-card">
+        <div class="metric-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01"/></svg>
+        </div>
+        <div class="metric-label">Aulas agendadas</div>
+        <div class="metric-desc">via agente ou recepção</div>
+      </div>
+      <div class="metric-card glass-card">
+        <div class="metric-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <div class="metric-label">Comparecimento</div>
+        <div class="metric-desc">% que apareceu na aula</div>
+      </div>
+      <div class="metric-card glass-card">
+        <div class="metric-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="metric-label">Conversão presencial</div>
+        <div class="metric-desc">aula experimental → matrícula</div>
+      </div>
+      <div class="metric-card glass-card">
+        <div class="metric-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="metric-label">Tempo de resposta</div>
+        <div class="metric-desc">média do primeiro contato</div>
+      </div>
+    </div>
+
+    <div class="medicao-nota reveal mt-8">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span>Baseline começa a ser construído na semana 1 de operação. Não projetamos ROI sem dados reais da academia.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── INVESTIMENTO ───────────── -->
+<section id="investimento" class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Proposta financeira</div>
+      <h2>Investimento</h2>
+      <p class="section-sub">Duas formas de começar. O serviço pode ser encerrado com 30 dias de aviso.</p>
+    </div>
+
+    <div class="investment-grid reveal mt-12">
+
+      <!-- Opção A -->
+      <div class="invest-card glass-card" id="investment-a">
+        <div class="invest-card-label">Opção A</div>
+        <div class="invest-card-name">Mensal</div>
+        <div class="invest-card-setup">
+          <span class="invest-card-setup-value" id="val-setup">R$ 6.900</span>
+          <span class="invest-card-setup-desc">implantação</span>
+        </div>
+        <div class="invest-card-divider"></div>
+        <div class="invest-card-monthly-row">
+          <span class="invest-card-monthly-value" id="val-monthly-a">R$ 2.490</span>
+          <span class="invest-card-monthly-label">/mês</span>
+        </div>
+        <div class="invest-card-period" id="val-months">por 6 meses</div>
+        <div class="invest-card-total-row">
+          <span class="invest-card-total-label">Total em 6 meses</span>
+          <span class="invest-card-total-value" id="val-total-a">R$ 21.840</span>
+        </div>
+        <a id="cta-wa-a" href="#" class="btn-wa btn-wa-secondary" target="_blank" rel="noopener" aria-label="Escolher Opção A via WhatsApp">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero a Opção A
+        </a>
+      </div>
+
+      <!-- Opção B -->
+      <div class="invest-card invest-card-featured glass-card" id="investment-b">
+        <div class="invest-card-savings-badge" id="val-savings">Economia de R$ 1.970</div>
+        <div class="invest-card-label">Opção B</div>
+        <div class="invest-card-name">À vista</div>
+        <div class="invest-card-setup">
+          <span class="invest-card-setup-value">R$ 6.900</span>
+          <span class="invest-card-setup-desc">implantação</span>
+        </div>
+        <div class="invest-card-divider"></div>
+        <div class="invest-card-monthly-row">
+          <span class="invest-card-monthly-label">6 mensalidades c/ 10% off</span>
+        </div>
+        <div class="invest-card-period">incluídas no pagamento único</div>
+        <div class="invest-card-total-row invest-card-total-featured">
+          <span class="invest-card-total-label">Total à vista</span>
+          <span class="invest-card-total-value" id="val-total-b">R$ 19.870</span>
+        </div>
+        <a id="cta-wa-b" href="#" class="btn-wa btn-wa-primary" target="_blank" rel="noopener" aria-label="Escolher Opção B via WhatsApp">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero a Opção B — à vista
+        </a>
+      </div>
+    </div>
+
+    <!-- Decision CTA -->
+    <div class="decision-cta reveal mt-10">
+      <p class="decision-question">Qual formato faz mais sentido para começarmos?</p>
+      <p class="decision-hint">Clique no botão da opção escolhida — você vai direto para o WhatsApp. 👆</p>
+    </div>
+
+    <div class="investment-footer reveal mt-8">
+      <div class="invest-footer-items">
+        <div class="invest-footer-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Encerramento com 30 dias de aviso
+        </div>
+        <div class="invest-footer-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Acompanhamento semanal no primeiro mês
+        </div>
+        <div class="invest-footer-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Ajustes incluídos durante o período de operação
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── FOOTER ───────────── -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="formsgym-logo.jpg" alt="Forms Gym" class="logo-img logo-img-footer">
+        <span class="logo-name">Forms Gym</span>
+      </div>
+      <div class="footer-note">
+        Proposta elaborada exclusivamente para Forms Gym · Cascavel, PR
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
