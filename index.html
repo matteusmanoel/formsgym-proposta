@@ -36,15 +36,15 @@
     </div>
     <div class="pnote" data-section="demo">
       <h4>Demo Interativa</h4>
-      <p>Peça a Cadu para escolher o cenário. Deixe ele clicar em "Iniciar". Use "Próximo" para avançar no ritmo da conversa. Ao final, mostre o painel de resumo e explique: <em>"Isso é o que chega para a recepcionista."</em></p>
+      <p>A conversa começa sozinha. Use o ritmo e o botão Avançar para acompanhar a reunião. Trocar de cenário zera a conversa. Ao final: <em>"Isso é o que a equipe recebe — e o fechamento continua humano."</em></p>
     </div>
     <div class="pnote" data-section="operacao">
       <h4>Operação</h4>
-      <p>Deixe claro: o agendamento confirmatório ainda passa pela equipe hoje. A integração com SCA vem depois da validação técnica. Não prometa automação antes de verificar os acessos.</p>
+      <p>SCA, Agulha e a plataforma financeira ainda serão validados. Se a integração for possível e autorizada, o fluxo automatiza. Se não for, a equipe opera um fluxo assistido. Não prometa integração como cláusula fechada.</p>
     </div>
     <div class="pnote" data-section="implementacao">
       <h4>Implementação</h4>
-      <p>Mostre que há um processo, não uma promessa vaga. Se Cadu perguntar sobre prazo, reforce: <em>"Início previsto para a semana seguinte à contratação e acessos confirmados."</em></p>
+      <p>Mostre que há um processo. Se perguntarem prazo: <em>"30 a 45 dias corridos depois da assinatura e dos acessos. Integração com terceiros só se a validação técnica permitir."</em></p>
     </div>
     <div class="pnote" data-section="medicao">
       <h4>Medição</h4>
@@ -52,7 +52,7 @@
     </div>
     <div class="pnote" data-section="investimento">
       <h4>Investimento</h4>
-      <p>Apresente as duas opções e PARE. Deixe Cadu escolher. Não empurre a opção B se ele não tiver inclinação. A pergunta de fechamento está na tela — deixe ela trabalhar. Não adicione palavras.</p>
+      <p>Mostre primeiro a condição em boletos: duas contas, não um financiamento único. A mensalidade começa na assinatura. A oferta à vista continua, também em 6× no cartão, com o desconto. Depois leia o fechamento e pare.</p>
     </div>
   </div>
 </aside>
@@ -277,19 +277,24 @@
   <div class="container">
     <div class="section-header reveal">
       <div class="section-label demo-label">
-        <span class="demo-badge">⚡ Simulação do atendimento</span>
-        <span class="demo-disclaimer">· não representa conversa ao vivo</span>
+        <span class="demo-badge">⚡ Simulação ilustrativa</span>
+        <span class="demo-disclaimer">· não está ligada ao WhatsApp, ao SCA, ao CRM nem a pagamentos</span>
       </div>
-      <h2>Veja como um interessado é atendido</h2>
-      <p class="section-sub">Escolha um cenário e acompanhe a conversa. No final, veja o resumo que chega para a recepção.</p>
+      <h2>Veja o atendimento em operação</h2>
+      <p class="section-sub">Do primeiro contato à agenda e à renovação. A conversa anda sozinha — você controla o ritmo, avança ou reinicia. No fim, o que a equipe recebe.</p>
     </div>
 
     <div class="demo-wrapper reveal mt-12">
       <!-- Left: Controls -->
       <div class="demo-controls">
+        <div class="demo-scenarios">
         <div class="demo-scenarios-label">Escolha um cenário</div>
         <div class="demo-scenario-tabs" role="tablist" aria-label="Cenários de demonstração">
-          <button class="scenario-tab active" data-scenario="preco" role="tab" aria-selected="true" aria-controls="chat-area">
+          <button class="scenario-tab active" data-scenario="novo" role="tab" aria-selected="true" aria-controls="chat-area">
+            <span class="tab-icon">🏋️</span>
+            <span class="tab-text">Novo interessado</span>
+          </button>
+          <button class="scenario-tab" data-scenario="preco" role="tab" aria-selected="false" aria-controls="chat-area">
             <span class="tab-icon">💰</span>
             <span class="tab-text">Quanto custa?</span>
           </button>
@@ -297,24 +302,35 @@
             <span class="tab-icon">🤔</span>
             <span class="tab-text">Quero começar, mas estou inseguro</span>
           </button>
-          <button class="scenario-tab" data-scenario="aula" role="tab" aria-selected="false" aria-controls="chat-area">
-            <span class="tab-icon">🏋️</span>
-            <span class="tab-text">Quero fazer uma aula</span>
+          <button class="scenario-tab" data-scenario="reagendar" role="tab" aria-selected="false" aria-controls="chat-area">
+            <span class="tab-icon">📅</span>
+            <span class="tab-text">Reagendar aula</span>
           </button>
+          <button class="scenario-tab" data-scenario="cancelar" role="tab" aria-selected="false" aria-controls="chat-area">
+            <span class="tab-icon">🗓️</span>
+            <span class="tab-text">Cancelar aula</span>
+          </button>
+          <button class="scenario-tab" data-scenario="pagamento" role="tab" aria-selected="false" aria-controls="chat-area">
+            <span class="tab-icon">🔗</span>
+            <span class="tab-text">Renovação de plano</span>
+          </button>
+        </div>
         </div>
 
         <div class="demo-play-controls">
-          <button id="btn-play" class="demo-btn demo-btn-primary" aria-label="Iniciar demonstração">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            Iniciar
-          </button>
-          <button id="btn-step" class="demo-btn demo-btn-secondary" aria-label="Próxima mensagem" disabled>
+          <p id="demo-status" class="demo-status" aria-live="polite">A conversa começa automaticamente.</p>
+          <div class="demo-pace" role="group" aria-label="Ritmo da simulação">
+            <button type="button" class="pace-btn" data-pace="1.7">Lento</button>
+            <button type="button" class="pace-btn active" data-pace="1">Normal</button>
+            <button type="button" class="pace-btn" data-pace="0.5">Rápido</button>
+          </div>
+          <button id="btn-advance" class="demo-btn demo-btn-primary" type="button">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            Próximo
+            Avançar
           </button>
-          <button id="btn-reset" class="demo-btn demo-btn-ghost" aria-label="Reiniciar demonstração" disabled>
+          <button id="btn-reset" class="demo-btn demo-btn-ghost" type="button" aria-label="Reiniciar demonstração">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
-            Reiniciar
+            Reiniciar cenário
           </button>
         </div>
 
@@ -357,7 +373,7 @@
             <!-- Messages injected by JS -->
             <div class="wa-empty-state" id="wa-empty">
               <div class="wa-empty-icon" aria-hidden="true">💬</div>
-              <p>Selecione um cenário e clique em <strong>Iniciar</strong></p>
+              <p>A conversa começa em instantes.</p>
             </div>
           </div>
 
@@ -382,7 +398,7 @@
       </div>
       <div id="summary-content" class="summary-content"></div>
       <div class="summary-note">
-        Esta ficha chega para a recepção antes do interessado aparecer na academia.
+        Simulação. Esta ficha é o que a recepção ou o vendedor receberiam. O fechamento da matrícula continua com uma pessoa.
       </div>
     </div>
 
@@ -394,8 +410,8 @@
   <div class="container">
     <div class="section-header reveal">
       <div class="section-label">Como funciona</div>
-      <h2>Do primeiro contato ao agendamento</h2>
-      <p class="section-sub">O fluxo que propomos para transformar conversas no WhatsApp em aulas experimentais agendadas — com a equipe no lugar certo de cada etapa.</p>
+      <h2>Da primeira mensagem até a equipe assumir</h2>
+      <p class="section-sub">O agente conduz a conversa. A recepção recebe contexto. O vendedor fecha. Exceção, contestação e negociação voltam para uma pessoa.</p>
     </div>
 
     <div class="flow-pipeline reveal mt-12">
@@ -442,9 +458,18 @@
       </div>
     </div>
 
+    <div class="scope-grid reveal mt-8">
+      <div class="scope-item glass-card"><strong>Atendimento inicial</strong><span>Dúvidas aprovadas e uma qualificação curta, sem questionário.</span></div>
+      <div class="scope-item glass-card"><strong>Aula experimental</strong><span>Convite alinhado a acompanhamento, avaliação e resultado.</span></div>
+      <div class="scope-item glass-card"><strong>Agenda</strong><span>Agendar, reagendar e cancelar, dentro das regras da academia.</span></div>
+      <div class="scope-item glass-card"><strong>Contexto para a equipe</strong><span>Resumo da conversa, da intenção e da próxima ação.</span></div>
+      <div class="scope-item glass-card"><strong>Link de pagamento</strong><span>Só o que uma fonte autorizada informar, para pendência ou renovação.</span></div>
+      <div class="scope-item glass-card"><strong>Pessoa no controle</strong><span>Contestação, negociação, exceção e fechamento da matrícula.</span></div>
+    </div>
+
     <div class="operacao-nota reveal mt-8">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <span>O agendamento passa pela recepção hoje — e pode ser automatizado diretamente no SCA assim que validarmos o acesso técnico. A integração não é condição para o agente funcionar.</span>
+      <span>A agenda hoje está no SCA e o Agulha foi indicado como CRM. Quando a integração for tecnicamente possível e autorizada, agendar, reagendar e cancelar pode acontecer direto no sistema. Até lá, a equipe recebe o resumo e confirma num fluxo assistido. O mesmo vale para links de pagamento: só os que vierem de fonte autorizada, sem o agente inventar valor ou confirmar pagamento sozinho.</span>
     </div>
   </div>
 </section>
@@ -455,7 +480,7 @@
     <div class="section-header reveal">
       <div class="section-label">Cronograma</div>
       <h2>De hoje até operacional</h2>
-      <p class="section-sub">Início previsto na semana seguinte à contratação e confirmação de acessos. Janela estimada de 30 a 45 dias para implantação completa.</p>
+      <p class="section-sub">Estimativa de 30 a 45 dias corridos depois da assinatura e da entrega dos acessos e informações essenciais. Integração com sistemas de terceiros depende de validação técnica — não é prazo garantido.</p>
     </div>
 
     <div class="timeline reveal mt-12">
@@ -465,7 +490,7 @@
           <div class="timeline-week">Semana 1</div>
           <h3>Contratação e acessos</h3>
           <p>Assinatura do contrato, coleta de acessos necessários, briefing completo com Cadu sobre tom de voz, roteiros aprovados e regras de negócio.</p>
-          <div class="timeline-gate">Integração com SCA/Agulha: avaliada nesta etapa</div>
+          <div class="timeline-gate">SCA, Agulha e financeiro: viabilidade avaliada aqui, sem promessa de integração</div>
         </div>
       </div>
       <div class="timeline-item">
@@ -562,84 +587,86 @@
 <section id="investimento" class="section section-alt">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">Proposta financeira</div>
+      <div class="section-label">Condição negociada</div>
       <h2>Investimento</h2>
-      <p class="section-sub">Duas formas de começar. O serviço pode ser encerrado com 30 dias de aviso.</p>
+      <p class="section-sub">Duas obrigações distintas. A implantação pode ser parcelada em boletos. A mensalidade começa na assinatura — não depois que o agente entrar no ar.</p>
     </div>
 
     <div class="investment-grid reveal mt-12">
-
-      <!-- Opção A -->
-      <div class="invest-card glass-card" id="investment-a">
-        <div class="invest-card-label">Opção A</div>
-        <div class="invest-card-name">Mensal</div>
-        <div class="invest-card-setup">
-          <span class="invest-card-setup-value" id="val-setup">R$ 6.900</span>
-          <span class="invest-card-setup-desc">implantação</span>
+      <div class="invest-card invest-card-featured glass-card" id="investment-a">
+        <div class="invest-card-label">Condição combinada</div>
+        <div class="invest-card-name">Boletos + mensalidade</div>
+        <div class="pay-split">
+          <div>
+            <span class="pay-kicker">Implantação</span>
+            <strong id="val-setup">R$ 6.900</strong>
+            <em>6 boletos de <span id="val-boleto">R$ 1.150</span></em>
+          </div>
+          <div>
+            <span class="pay-kicker">Operação</span>
+            <strong id="val-monthly-a">R$ 2.490</strong>
+            <em>por mês, enquanto o serviço estiver ativo</em>
+          </div>
         </div>
-        <div class="invest-card-divider"></div>
-        <div class="invest-card-monthly-row">
-          <span class="invest-card-monthly-value" id="val-monthly-a">R$ 2.490</span>
-          <span class="invest-card-monthly-label">/mês</span>
+        <div class="pay-now">
+          <span>Na assinatura</span>
+          <strong id="val-now">R$ 3.640</strong>
+          <small>1ª parcela da implantação + 1ª mensalidade</small>
         </div>
-        <div class="invest-card-period" id="val-months">por 6 meses</div>
-        <div class="invest-card-total-row">
-          <span class="invest-card-total-label">Total em 6 meses</span>
-          <span class="invest-card-total-value" id="val-total-a">R$ 21.840</span>
-        </div>
-        <a id="cta-wa-a" href="#" class="btn-wa btn-wa-secondary" target="_blank" rel="noopener" aria-label="Escolher Opção A via WhatsApp">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Quero a Opção A
-        </a>
+        <ol class="pay-schedule">
+          <li><span>Assinatura, ainda em setembro de 2026</span><b>R$ 3.640</b></li>
+          <li><span>17/10/2026</span><b>R$ 3.640</b></li>
+          <li><span>Todo dia 17, até a 6ª parcela da implantação</span><b>R$ 3.640</b></li>
+          <li><span>Depois da 6ª parcela</span><b>R$ 2.490/mês</b></li>
+        </ol>
+        <p class="pay-math" id="val-math">6 × R$ 1.150 = R$ 6.900 de implantação. 6 × R$ 2.490 = R$ 14.940 de mensalidades. Os seis primeiros pagamentos somam R$ 21.840. Não é um financiamento único de R$ 21.840 em seis vezes.</p>
       </div>
 
-      <!-- Opção B -->
-      <div class="invest-card invest-card-featured glass-card" id="investment-b">
+      <div class="invest-card glass-card" id="investment-b">
         <div class="invest-card-savings-badge" id="val-savings">Economia de R$ 1.970</div>
-        <div class="invest-card-label">Opção B</div>
-        <div class="invest-card-name">À vista</div>
-        <div class="invest-card-setup">
-          <span class="invest-card-setup-value">R$ 6.900</span>
-          <span class="invest-card-setup-desc">implantação</span>
-        </div>
-        <div class="invest-card-divider"></div>
-        <div class="invest-card-monthly-row">
-          <span class="invest-card-monthly-label">6 mensalidades c/ 10% off</span>
-        </div>
-        <div class="invest-card-period">incluídas no pagamento único</div>
+        <div class="invest-card-label">Oferta anterior, mantida</div>
+        <div class="invest-card-name">À vista ou 6× no cartão</div>
+        <p class="invest-card-lead">O desconto por antecipação continua. O total com desconto pode ser pago à vista ou em 6 vezes no cartão, sem perder o desconto.</p>
         <div class="invest-card-total-row invest-card-total-featured">
-          <span class="invest-card-total-label">Total à vista</span>
+          <span class="invest-card-total-label">Total com desconto</span>
           <span class="invest-card-total-value" id="val-total-b">R$ 19.870</span>
         </div>
-        <a id="cta-wa-b" href="#" class="btn-wa btn-wa-primary" target="_blank" rel="noopener" aria-label="Escolher Opção B via WhatsApp">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Quero a Opção B — à vista
-        </a>
+        <p class="pay-card-note">6× no cartão mantém os mesmos R$ 19.870. A condição em boletos, ao lado, não aplica esse desconto.</p>
       </div>
-    </div>
-
-    <!-- Decision CTA -->
-    <div class="decision-cta reveal mt-10">
-      <p class="decision-question">Qual formato faz mais sentido para começarmos?</p>
-      <p class="decision-hint">Clique no botão da opção escolhida — você vai direto para o WhatsApp. 👆</p>
     </div>
 
     <div class="investment-footer reveal mt-8">
       <div class="invest-footer-items">
-        <div class="invest-footer-item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Encerramento com 30 dias de aviso
-        </div>
-        <div class="invest-footer-item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Acompanhamento semanal no primeiro mês
-        </div>
-        <div class="invest-footer-item">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Ajustes incluídos durante o período de operação
-        </div>
+        <div class="invest-footer-item">Sem fidelidade obrigatória de seis meses e sem multa rescisória</div>
+        <div class="invest-footer-item">Aviso prévio de 30 dias</div>
+        <div class="invest-footer-item">Se a rescisão ocorrer depois do início efetivo da implantação, o saldo da implantação parcelada continua devido, conforme o contrato</div>
       </div>
+      <p class="token-note">A mensalidade cobre os custos ordinários de tecnologia desta operação, com franquia de 50 milhões de tokens de texto por mês — entrada e saída somadas, não 50 milhões de cada. É uma trava para volume fora do comum: o consumo é acompanhado e qualquer ampliação pede proposta e aprovação antes. Campanhas e disparos em massa não entram nesta oferta.</p>
     </div>
+
+    <div class="decision-cta reveal mt-10">
+      <p class="decision-question">O próximo passo é a assinatura, não um checkout nesta página.</p>
+      <a href="#assinatura" class="btn btn-primary">Avançar para a assinatura</a>
+    </div>
+  </div>
+</section>
+
+<section id="assinatura" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Consideração final</div>
+      <h2>O seu padrão, também quando a recepção está ocupada</h2>
+    </div>
+    <blockquote class="closing-quote reveal">
+      <p>Você mesmo comparou este investimento ao custo de uma pessoa. O que entra em operação é o seu jeito de entender, orientar e conduzir o interessado — também fora do expediente, quando o balcão está cheio ou quando você precisa cuidar do negócio. A equipe segue essencial para receber, resolver exceção e fechar. A primeira conversa deixa de depender de um dia bom ou de um buraco na agenda.</p>
+      <footer>Não é um substituto de alguém da Forms Gym, nem uma promessa de que o sistema nunca para para manutenção. E não é um número de folha de pagamento: essa conta é sua, não nossa.</footer>
+    </blockquote>
+    <ol class="next-steps reveal">
+      <li><strong>Minuta do contrato</strong><span>Condições de rescisão, saldo da implantação e exceções ficam na redação jurídica.</span></li>
+      <li><strong>Assinatura</strong><span>Na hora, R$ 3.640: primeira parcela da implantação e primeira mensalidade.</span></li>
+      <li><strong>Acessos</strong><span>WhatsApp, SCA, Agulha e a fonte de pagamentos, para validar o que pode ser automático.</span></li>
+      <li><strong>Implantação</strong><span>Estimativa de 30 a 45 dias corridos após assinatura e informações essenciais.</span></li>
+    </ol>
   </div>
 </section>
 

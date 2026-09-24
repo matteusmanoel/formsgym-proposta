@@ -11,7 +11,7 @@
 2. Use o nav fixo no topo para pular entre seções
 3. Para navegar: scroll natural ou clique nos links do nav
 4. Modo apresentador: tecla `P` → painel lateral com suas falas sugeridas
-5. Demo: peça a Cadu para escolher o cenário, depois use **Iniciar** e **Próximo**
+5. Demo: a conversa começa sozinha. Peça a Cadu para escolher outro cenário — ela reinicia.
 
 ---
 
@@ -70,7 +70,7 @@
 *Aponte para as três abas e deixe Cadu escolher.*
 
 **Depois de escolher:**
-> "Você clica em Iniciar, e vou avançar mensagem por mensagem para a gente conversar sobre cada resposta."
+> "A conversa rola sozinha. Se quiser ver outro caso, é só escolher o cenário — ela recomeça do zero."
 
 **Durante a conversa:**
 - A cada resposta do agente, pause e comente: *"Repara como o agente não respondeu preço imediatamente — ele qualificou primeiro."* (ou o equivalente para o cenário)
@@ -109,7 +109,7 @@
 ---
 
 ### 9 — Investimento ⭐ (fechamento)
-**O que está na tela:** Opção A e Opção B + pergunta de fechamento.
+**O que está na tela:** boletos + mensalidade desde a assinatura, e a oferta à vista/6× no cartão de R$ 19.870.
 
 **Sua fala sugerida:**
 > "Duas formas de entrar. A estrutura é a mesma — implantação e operação. A diferença é o ritmo do pagamento."
@@ -144,8 +144,8 @@
 ## Checklist pré-reunião
 
 - [ ] Abrir `http://localhost:8080` e verificar que a página carrega
-- [ ] Testar os 3 cenários da demo (Iniciar → Próximo → Resumo)
-- [ ] Conferir os valores de investimento (Opção A = R$ 21.840, Opção B = R$ 20.346, Economia = R$ 1.494)
+- [ ] Testar os 3 cenários da demo (troca de cenário reseta e a conversa roda sozinha até o resumo)
+- [ ] Conferir: 6 × 1.150 = 6.900; entrada R$ 3.640; seis pagamentos R$ 21.840; à vista/cartão R$ 19.870
 - [ ] Testar tecla `P` para o modo apresentador
 - [ ] Deixar navegador em tela cheia (`F11`)
 - [ ] Fechar outras abas para não haver distração
