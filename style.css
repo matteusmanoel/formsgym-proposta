@@ -1752,6 +1752,23 @@ p  { color: var(--text-dim); line-height: 1.7; }
 .invest-footer-item svg { flex-shrink: 0; margin-top: 2px; color: var(--text-muted); }
 
 /* ════════════════════════════════════════
+   WA ANNOTATION (note type)
+   ════════════════════════════════════════ */
+.wa-annotation {
+  display: flex;
+  justify-content: center;
+  padding: 0.15rem 1.2rem 0.6rem;
+}
+.wa-annotation span {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.5;
+  text-align: center;
+  max-width: 340px;
+}
+
+/* ════════════════════════════════════════
    DEMO MOBILE OPEN BUTTON
    ════════════════════════════════════════ */
 .demo-open-btn {
@@ -1782,13 +1799,13 @@ p  { color: var(--text-dim); line-height: 1.7; }
 }
 
 /* ════════════════════════════════════════
-   DEMO DIALOG (mobile fullscreen)
+   DEMO DIALOG (mobile fullscreen WhatsApp)
    ════════════════════════════════════════ */
 #demo-dialog {
   border: none;
   padding: 0;
-  background: var(--bg-surface, #1a1e2e);
-  color: var(--text);
+  background: #0B141A; /* WhatsApp dark bg */
+  color: #E9EDEF;
   width: 100vw;
   max-width: 100vw;
   height: 100dvh;
@@ -1806,58 +1823,147 @@ p  { color: var(--text-dim); line-height: 1.7; }
   flex-direction: column;
   height: 100%;
 }
-.demo-dialog-header {
+
+/* WA-style header */
+.demo-dialog-wa-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.9rem 1rem 0.6rem;
-  border-bottom: 1px solid var(--border);
+  gap: 0.7rem;
+  padding: 0.6rem 0.75rem;
+  background: #202C33;
   flex-shrink: 0;
+  min-height: 56px;
 }
-.demo-dialog-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text);
-}
-.demo-dialog-close {
+.demo-dialog-back {
   background: none;
   border: none;
-  color: var(--text-muted);
-  font-size: 1.2rem;
+  color: #AEBAC1;
   cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  border-radius: 6px;
-  font-family: inherit;
+  padding: 0.2rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
-.demo-dialog-phone {
+.demo-dialog-wa-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--energy-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.demo-dialog-wa-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.demo-dialog-wa-info {
+  flex: 1;
+  min-width: 0;
+}
+.demo-dialog-wa-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #E9EDEF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.demo-dialog-wa-status {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: #8696A0;
+}
+.demo-dialog-wa-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: #AEBAC1;
+  flex-shrink: 0;
+}
+
+/* Scrollable chat area */
+.demo-dialog-chat {
   flex: 1;
   overflow-y: auto;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 0.6rem;
+  background: #0B141A;
+  /* Subtle WA background pattern */
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }
-.demo-dialog-footer {
+
+/* Decorative input bar inside dialog */
+.demo-dialog-input {
+  flex-shrink: 0;
+}
+
+/* Bottom action bar */
+.demo-dialog-bar {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.85rem 1rem;
-  border-top: 1px solid var(--border);
-  background: var(--bg-surface, #1a1e2e);
+  padding: 0.6rem 0.75rem;
+  background: #202C33;
   flex-shrink: 0;
-  flex-wrap: wrap;
 }
-.demo-dialog-footer .pace-btn {
-  padding: 0.35rem 0.7rem;
-  font-size: 0.78rem;
-}
-.demo-dialog-footer .demo-pace {
+.demo-dialog-restart-btn {
+  background: rgba(255,255,255,0.06);
+  border: none;
+  color: #AEBAC1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   display: flex;
-  gap: 0.25rem;
-}
-.demo-dialog-footer .demo-btn {
-  flex: 1;
-  min-width: 0;
+  align-items: center;
   justify-content: center;
-  font-size: 0.85rem;
+  cursor: pointer;
+  flex-shrink: 0;
 }
+.demo-dialog-restart-btn:active { background: rgba(255,255,255,0.12); }
+.demo-dialog-select {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #E9EDEF;
+  border-radius: 8px;
+  padding: 0.5rem 0.65rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23AEBAC1' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  padding-right: 1.8rem;
+}
+.demo-dialog-select option { background: #202C33; color: #E9EDEF; }
+
+/* Finish CTA button in dialog chat */
+.wa-finish-cta {
+  display: flex;
+  justify-content: center;
+  padding: 1.2rem 0.5rem 0.5rem;
+}
+.wa-finish-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.75rem 1.4rem;
+  border-radius: 24px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: inherit;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+}
+.wa-finish-cta-btn:hover { background: #20c45c; }

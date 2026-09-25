@@ -327,18 +327,9 @@
 
         <div class="demo-play-controls">
           <p id="demo-status" class="demo-status" aria-live="polite">A conversa começa automaticamente.</p>
-          <div class="demo-pace" role="group" aria-label="Ritmo da simulação">
-            <button type="button" class="pace-btn active" data-pace="1.7">Lento</button>
-            <button type="button" class="pace-btn" data-pace="1">Normal</button>
-            <button type="button" class="pace-btn" data-pace="0.5">Rápido</button>
-          </div>
-          <button id="btn-advance" class="demo-btn demo-btn-primary" type="button">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            Avançar
-          </button>
           <button id="btn-reset" class="demo-btn demo-btn-ghost" type="button" aria-label="Reiniciar demonstração">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
-            Reiniciar cenário
+            Reiniciar
           </button>
         </div>
 
@@ -404,28 +395,61 @@
       </div>
     </div>
 
-    <!-- Mobile demo dialog -->
+    <!-- Mobile demo dialog (fullscreen WhatsApp-style) -->
     <dialog id="demo-dialog" aria-label="Simulação do atendimento">
       <div class="demo-dialog-inner">
-        <div class="demo-dialog-header">
-          <span id="demo-dialog-title" class="demo-dialog-title">Simulação</span>
-          <button class="demo-dialog-close" id="demo-dialog-close" aria-label="Fechar">✕</button>
-        </div>
-        <div class="demo-dialog-phone" id="demo-dialog-phone"><!-- phone clone injected by JS --></div>
-        <div class="demo-dialog-footer">
-          <div class="demo-pace dialog-pace" role="group" aria-label="Ritmo">
-            <button type="button" class="pace-btn active" data-pace="1.7">Lento</button>
-            <button type="button" class="pace-btn" data-pace="1">Normal</button>
-            <button type="button" class="pace-btn" data-pace="0.5">Rápido</button>
+        <!-- WA-style header -->
+        <div class="demo-dialog-wa-header">
+          <button class="demo-dialog-back" id="demo-dialog-close" aria-label="Fechar simulação">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="demo-dialog-wa-avatar">
+            <img src="formsgym-logo.jpg" alt="" class="wa-avatar-img">
           </div>
-          <button id="btn-advance-dialog" class="demo-btn demo-btn-primary" type="button">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            Avançar
+          <div class="demo-dialog-wa-info">
+            <div class="demo-dialog-wa-name">Ana · Forms Gym</div>
+            <div class="demo-dialog-wa-status">
+              <span class="wa-online-dot" aria-hidden="true"></span>
+              online
+            </div>
+          </div>
+          <div class="demo-dialog-wa-actions" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 12.84a19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+          </div>
+        </div>
+
+        <!-- Chat area (messages injected here) -->
+        <div class="demo-dialog-chat" id="demo-dialog-chat">
+          <!-- date divider -->
+          <div class="wa-date-divider"><span>HOJE</span></div>
+        </div>
+
+        <!-- Input bar (decorative) -->
+        <div class="wa-input-bar demo-dialog-input" aria-hidden="true">
+          <div class="wa-input-inner">
+            <span class="wa-input-placeholder">Mensagem</span>
+          </div>
+          <div class="wa-mic-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/></svg>
+          </div>
+        </div>
+
+        <!-- Bottom bar: restart (left) + scenario picker (right) -->
+        <div class="demo-dialog-bar">
+          <button id="btn-reset-dialog" class="demo-dialog-restart-btn" aria-label="Reiniciar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
           </button>
-          <button id="btn-reset-dialog" class="demo-btn demo-btn-ghost" type="button">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
-            Reiniciar
-          </button>
+          <select id="dialog-scenario-select" class="demo-dialog-select" aria-label="Escolher cenário">
+            <option value="novo">🏋️ Novo interessado</option>
+            <option value="preco">💰 Quanto custa?</option>
+            <option value="inseguro">🤔 Quero começar, mas estou inseguro</option>
+            <option value="reagendar">📅 Reagendar aula</option>
+            <option value="cancelar">🗓️ Cancelar aula</option>
+            <option value="pagamento">🔗 Renovação de plano</option>
+            <option value="cobranca">💳 Plano vencido</option>
+            <option value="pagamento_pendente">⏰ Mensalidade atrasada</option>
+          </select>
         </div>
       </div>
     </dialog>
@@ -611,18 +635,7 @@
             <em>por mês, enquanto o serviço estiver ativo</em>
           </div>
         </div>
-        <div class="pay-now">
-          <span>Na assinatura</span>
-          <strong id="val-now">R$ 3.640</strong>
-          <small>1ª parcela da implantação + 1ª mensalidade</small>
-        </div>
-        <ol class="pay-schedule">
-          <li><span>Assinatura, ainda em setembro de 2026</span><b>R$ 3.640</b></li>
-          <li><span>17/10/2026</span><b>R$ 3.640</b></li>
-          <li><span>Todo dia 17, até a 6ª parcela da implantação</span><b>R$ 3.640</b></li>
-          <li><span>Depois da 6ª parcela</span><b>R$ 2.490/mês</b></li>
-        </ol>
-        <p class="pay-math" id="val-math">6 × R$ 1.150 = R$ 6.900 de implantação. 6 × R$ 2.490 = R$ 14.940 de mensalidades. Os seis primeiros pagamentos somam R$ 21.840. Não é um financiamento único de R$ 21.840 em seis vezes.</p>
+        <p class="pay-card-note" style="margin-top:0.5rem">Na assinatura: <strong id="val-now">R$ 3.640</strong> — 1ª parcela + 1ª mensalidade</p>
       </div>
 
       <div class="invest-card glass-card" id="investment-b">
@@ -658,18 +671,6 @@
   </div>
 </section>
 
-<section id="assinatura" class="section">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-label">Consideração final</div>
-      <h2>O seu padrão, também quando a recepção está ocupada</h2>
-    </div>
-    <blockquote class="closing-quote reveal">
-      <p>Você mesmo comparou este investimento ao custo de uma pessoa. O que entra em operação é o seu jeito de entender, orientar e conduzir o interessado — também fora do expediente, quando o balcão está cheio ou quando você precisa cuidar do negócio. A equipe segue essencial para receber, resolver exceção e fechar. A primeira conversa deixa de depender de um dia bom ou de um buraco na agenda.</p>
-      <footer>Não é um substituto de alguém da Forms Gym, nem uma promessa de que o sistema nunca para para manutenção. E não é um número de folha de pagamento: essa conta é sua, não nossa.</footer>
-    </blockquote>
-  </div>
-</section>
 
 <!-- ───────────── FOOTER ───────────── -->
 <footer class="site-footer">
